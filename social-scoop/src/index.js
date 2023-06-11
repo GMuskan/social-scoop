@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from './Context/AuthContext';
 
 // Call make Server
 makeServer();
@@ -11,7 +13,11 @@ makeServer();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </Router>
   </React.StrictMode>
 );
 

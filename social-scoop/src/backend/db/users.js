@@ -9,9 +9,9 @@ export const users = [
     _id: uuid(),
     fullName: "Muskan Gupta",
     username: "muskan09",
-    password: "123",
+    password: "muskan#123",
     bio: "Hey there, Muskan here",
-    website: "https://github.com/percius47",
+    website: "https://github.com/GMuskan/social-scoop",
     profileAvatar:
       "https://picsum.photos/id/1012/150",
     createdAt: formatDate(),
