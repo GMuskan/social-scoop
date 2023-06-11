@@ -1,4 +1,4 @@
-import {Toaster} from "react-hot-toast"
+import { Toaster } from "react-hot-toast"
 import './App.css';
 import { AppRoutes } from "./routes/AppRoutes";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Toaster
-        position="bottom-left"
+        position="bottom-right"
         reverseOrder={false}
         containerStyle={{
           bottom: "4rem",
@@ -14,8 +14,8 @@ function App() {
           fontSize: "0.9rem"
         }}
       />
-      <AppRoutes/>
-      
+      <AppRoutes />
+
     </div>
   );
 }
