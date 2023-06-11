@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { LoginClickHandler } from "../../../services/authService";
 import { useContext } from "react";
 import { authContext } from "../../../Context/AuthContext";
-
+import {Helmet} from "react-helmet"
 
 export const Login = () => {
 
@@ -19,13 +19,19 @@ export const Login = () => {
         setLogin({ ...login, input: { ...login.input, [name]: value } })
     }
     return (
+        
         <div className="login-container">
+            <Helmet>
+                <title>
+                    Login | Social-Scoop
+                </title>
+            </Helmet>
             <div className="login-form">
                 <div>
                     <h1>social-scoop</h1>
                 </div>
                 <div>
-                    <span>Socail media for Foodies!</span>
+                    <span>Social media for Foodies!</span>
                 </div>
                 <div>
                     <h1>Log In</h1>

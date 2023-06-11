@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { SignUpClickHandler } from "../../../services/authService"
 import { authContext } from "../../../Context/AuthContext";
+import { Helmet } from "react-helmet";
 
 
 export const SignUp = () => {
@@ -28,12 +29,17 @@ export const SignUp = () => {
     }
     return (
         <div className="signup-container">
+            <Helmet>
+                <title>
+                    SignUp | Social-Scoop
+                </title>
+            </Helmet>
             <div className="signup-form">
                 <div>
                     <h1>social-scoop</h1>
                 </div>
                 <div>
-                    <span>Socail media for Foodies!</span>
+                    <span>Social media for Foodies!</span>
                 </div>
                 <div>
                     <h1>Sign Up</h1>
