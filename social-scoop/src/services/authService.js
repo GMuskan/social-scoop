@@ -83,7 +83,7 @@ export const SignUpClickHandler = async (signUp, navigate, authDispatch) => {
 export const logoutClickHandler = (navigate, authState, authDispatch) => {
     const token = authState?.token
     if (token) {
-        authDispatch({ type: "SET_USER", payload: "" });
+        authDispatch({ type: "SET_USER", payload: JSON.stringify("") });
         authDispatch({ type: "SET_TOKEN", payload: "" });
         localStorage.removeItem("token")
         localStorage.removeItem("user")
