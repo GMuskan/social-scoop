@@ -3,7 +3,8 @@ const localStorageUser = JSON.parse(localStorage.getItem("user"));
 
 export const authInitialState = {
     token: localstorageToken,
-    user: localStorageUser
+    user: localStorageUser,
+    bookmarks: localStorageUser?.bookmarks
 }
 
 export const AuthReducer = (state, action) => {
@@ -12,8 +13,8 @@ export const AuthReducer = (state, action) => {
             return { ...state, user: JSON.parse(action.payload) }
         case "SET_TOKEN":
             return { ...state, token: action.payload }
-        // case "UPDATE_USER_DETAILS":
-        //     return { ...state, user: action.payload }
+        case "SET_BOOKMARKS":
+            return { ...state, bookmarks: action.payload }
         default:
             return state
     }

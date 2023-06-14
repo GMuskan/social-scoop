@@ -122,6 +122,8 @@ export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
   const post = schema.posts.findBy({ _id: postId }).attrs;
   const user = requiresAuth.call(this, request);
+
+  console.log("user controller", post, user)
   try {
     if (!user) {
       return new Response(

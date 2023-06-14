@@ -42,3 +42,41 @@ export const unfollowUser = async (userId, token, authDispatch) => {
         console.error(err)
     }
 }
+
+export const addBookmark = async (token, postId, authDispatch) => {
+    try {
+        const { status, data } = await axios.post(
+            `/api/users/bookmark/${postId}`,
+            {},
+            { headers: { authorization: token } }
+        );
+
+        console.log(data?.bookmarks)
+
+        if (status === 200) {
+            authDispatch({ type: "SET_BOOKMARKS", payload: data?.bookmarks })
+            toast.success("Added to Bookmarks")
+        }
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const removeBookmark = async (token, postId, authDispatch) => {
+    try {
+        console.log("inside remove bookmark")
+        const { status, data } = await axios.post(
+            `/api/users/remove-bookmark/${postId}`,
+            {},
+            { headers: { authorization: token } }
+        );
+        console.log(data)
+        if (status === 200) {
+            authDispatch({ type: "SET_BOOKMARKS", payload: data?.bookmarks })
+            toast.success("Removed from Bookmarks")
+        }
+    } catch (err) {
+        console.error(err)
+    }
+
+}

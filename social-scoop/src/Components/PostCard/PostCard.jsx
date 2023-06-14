@@ -1,15 +1,15 @@
 import { useContext, useState } from "react"
-import { addPostComment, deletePost, likePost } from "../../services/postService"
-import { getPostDate } from "../../utils/utils"
+import { addPostComment, deletePost, dislikePost, likePost } from "../../services/postService"
+import { getPostDate, postInBookmarks } from "../../utils/utils"
 import { feedContext } from "../../Context/FeedContext"
 import { EditPostModal } from "../EditPostModal/EditPostModal"
-import { unfollowUser } from "../../services/userService"
+import { addBookmark, removeBookmark, unfollowUser } from "../../services/userService"
 import { authContext } from "../../Context/AuthContext"
 
 export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
     const [comment, setComment] = useState("");
 
-    const { authDispatch } = useContext(authContext);
+    const { authState, authDispatch } = useContext(authContext);
     const handleUnfollowClick = (post) => {
         const userId = users.find(item => item?.username === post?.username)._id
         unfollowUser(userId, token, authDispatch)
@@ -49,7 +49,13 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                 <span>
                     <div>
                         <span><i className="fa fa-heart-o" aria-hidden="true"
-                            onClick={() => likePost(post?._id, token, feedDispatch)}
+                            onClick={() => {
+                                if (post?.likes?.likedBy.some(user => user?._id === loggedInUser?._id)) {
+                                    dislikePost(post?._id, token, feedDispatch)
+                                } else {
+                                    likePost(post?._id, token, feedDispatch)
+                                }
+                            }}
                         ></i>{post?.likes?.likeCount}</span>
                     </div>
                     <div>
@@ -59,7 +65,13 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                         }}></i>{post?.comments?.length}</span>
                     </div>
                     <div>
-                        <i className="fa fa-bookmark-o" aria-hidden="true"></i>
+                        <i className="fa fa-bookmark-o" style={{ color: postInBookmarks(authState?.bookmarks, post?._id) ? "green" : "red" }} aria-hidden="true"
+                            onClick={() => {
+                                postInBookmarks(authState?.bookmarks, post?._id)
+                                    ? removeBookmark(token, post?._id, authDispatch)
+                                    : addBookmark(token, post?._id, authDispatch)
+                            }}
+                        ></i>
                     </div>
                 </span>
             </div>

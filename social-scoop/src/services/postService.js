@@ -54,6 +54,23 @@ export const likePost = async (postId, token, feedDispatch) => {
 
 }
 
+export const dislikePost = async (postId, token, feedDispatch) => {
+    try {
+        const {status, data} = await axios.post(
+            `/api/posts/dislike/${postId}`,
+            {},
+            {
+                headers: { authorization: token },
+            }
+        );
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+        }
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 export const deletePost = async (postId, token, feedDispatch) => {
     try {
         const { data, status } = await axios.delete(`/api/posts/${postId}`,
