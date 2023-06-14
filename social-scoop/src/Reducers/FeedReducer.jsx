@@ -7,7 +7,9 @@ export const feedInitialState = {
     newPostContent: "",
     newPostImage: null,
     activeSort: "Latest",
-    editPostModal: false
+    editPostModal: false,
+    commentModal: false,
+    activePost: ""
 }
 
 export const FeedReducer = (state, action) => {
@@ -29,7 +31,11 @@ export const FeedReducer = (state, action) => {
         case "SET_ACTIVE_SORT":
             return { ...state, activeSort: action.payload }
         case "SET_EDIT_POST_MODAL":
-            return {...state, editPostModal: action.payload}
+            return { ...state, editPostModal: action.payload }
+        case "SET_COMMENT_MODAL":
+            return { ...state, commentModal: action.payload }
+        case "SET_ACTIVE_POST":
+            return {...state, activePost: action.payload}
         default:
             return state
     }

@@ -1,12 +1,14 @@
-import { useContext } from "react"
-import { deletePost, likePost } from "../../services/postService"
+import { useContext, useState } from "react"
+import { addPostComment, deletePost, likePost } from "../../services/postService"
 import { getPostDate } from "../../utils/utils"
 import { feedContext } from "../../Context/FeedContext"
 import { EditPostModal } from "../EditPostModal/EditPostModal"
 import { unfollowUser } from "../../services/userService"
 import { authContext } from "../../Context/AuthContext"
 
-export const PostCard = ({ post, token, loggedInUser, editPostModal, users }) => {
+export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
+    const [comment, setComment] = useState("");
+
     const { authDispatch } = useContext(authContext);
     const handleUnfollowClick = (post) => {
         const userId = users.find(item => item?.username === post?.username)._id
@@ -14,6 +16,7 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users }) =>
     }
 
     const { feedDispatch } = useContext(feedContext);
+
     return (
         <div>
             <div>
@@ -25,7 +28,7 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users }) =>
                     {post?.username === loggedInUser?.username
                         ? <span>
                             <i className="fa fa-pencil" aria-hidden="true" onClick={() => {
-                                console.log(editPostModal);
+                                feedDispatch({ type: "SET_ACTIVE_POST", payload: post?._id })
                                 feedDispatch({ type: "SET_EDIT_POST_MODAL", payload: true })
                             }}></i>
                             <i className="fa fa-trash" aria-hidden="true" onClick={() => deletePost(post?._id, token, feedDispatch)}></i>
@@ -50,14 +53,35 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users }) =>
                         ></i>{post?.likes?.likeCount}</span>
                     </div>
                     <div>
-                        <span><i className="fa fa-comment-o" aria-hidden="true"></i>{post?.comments?.length}</span>
+                        <span><i className="fa fa-comment-o" aria-hidden="true" onClick={() => {
+                            feedDispatch({ type: "SET_ACTIVE_POST", payload: post?._id })
+                            feedDispatch({ type: "SET_COMMENT_MODAL", payload: true })
+                        }}></i>{post?.comments?.length}</span>
                     </div>
                     <div>
                         <i className="fa fa-bookmark-o" aria-hidden="true"></i>
                     </div>
                 </span>
             </div>
-            {post?.username === loggedInUser?.username && editPostModal && <EditPostModal post={post} loggedInUser={loggedInUser} token={token} />}
+            {post?._id === activePost && commentModal &&
+                <div>
+                    <span>
+                        <img src={loggedInUser?.profileAvatar} alt="user-avatar" />
+                        <input type="text" placeholder="Post your reply" onChange={(e) => setComment(e.target.value)} />
+                    </span>
+                    <div>
+                        <button onClick={() => {
+                            feedDispatch({ type: "SET_COMMENT_MODAL", payload: false })
+                            feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
+                        }}>Cancel</button>
+                        <button onClick={() => {
+                            addPostComment(post, { comment }, token, feedDispatch)
+                            feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
+                        }}>Reply</button>
+                    </div>
+                </div>
+            }
+            {post?._id === activePost && editPostModal && <EditPostModal post={post} loggedInUser={loggedInUser} token={token} />}
         </div>
     )
 }

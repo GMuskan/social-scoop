@@ -21,7 +21,7 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
 
             <div>
                 {/* <i className="fa fa-times-circle" aria-hidden="true"></i> */}
-                <img src={post?.postImage} alt="post-icon" />
+                {post?.postImage && <img src={post?.postImage} alt="post-icon" />}
             </div>
             <div>
                 {/* <div>
@@ -31,10 +31,14 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
                     </label>
                 </div> */}
                 <div>
-                    <button onClick={() => feedDispatch({ type: "SET_EDIT_POST_MODAL", payload: false })}>Cancel</button>
+                    <button onClick={() => {
+                        feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
+                        feedDispatch({ type: "SET_EDIT_POST_MODAL", payload: false })
+                    }}>Cancel</button>
                     <button onClick={() => {
                         editPost(feedDispatch, token, postContent, post?._id)
                         feedDispatch({ type: "SET_EDIT_POST_MODAL", payload: false })
+                        feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
                     }}>Save</button>
                 </div>
             </div>

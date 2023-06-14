@@ -9,14 +9,14 @@ export const SuggestedUsers = ({ users, loggedInUser, token }) => {
         <div>
             <h1>Suggested Users</h1>
             {suggestedUsersList?.length
-                && suggestedUsersList.map(user => (
+                ? suggestedUsersList.map(user => (
                     <div key={user._id}>
                         <img src={user?.profileAvatar} alt="user-iamge" />
                         <div><span>{user?.fullName}</span><span>@{user?.username}</span></div>
                         <button onClick={() => followUser(user?._id, token, authDispatch)}>Follow</button>
                     </div>
 
-                ))}
+                )) : <div></div>}
         </div>
     )
 }

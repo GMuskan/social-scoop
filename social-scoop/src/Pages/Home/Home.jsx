@@ -14,7 +14,7 @@ export const Home = () => {
     const { authState } = useContext(authContext);
     const { feedState } = useContext(feedContext);
     const { token } = authState;
-    const { isLoading, userFeed, users, activeSort, editPostModal } = feedState;
+    const { isLoading, userFeed, users, activeSort, editPostModal, commentModal, activePost } = feedState;
     const loggedInUser = authState?.user
     const followingUsers = loggedInUser?.following
     var postOfFollowingUsers = userFeed?.filter(post => followingUsers?.some(followingUser => followingUser?.username === post?.username))
@@ -41,7 +41,16 @@ export const Home = () => {
                     ? <p>Loading...</p>
                     : sortedPosts?.length
                         ? sortedPosts.map(feed => (
-                            <PostCard post={feed} key={feed?._id} token={token} loggedInUser={loggedInUser} editPostModal={editPostModal} users={users} />
+                            <PostCard
+                                post={feed}
+                                key={feed?._id}
+                                token={token}
+                                loggedInUser={loggedInUser}
+                                editPostModal={editPostModal}
+                                users={users}
+                                commentModal={commentModal}
+                                activePost={activePost}
+                            />
                         ))
                         : <div>No Posts</div>
                 }

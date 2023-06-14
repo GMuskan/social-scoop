@@ -45,7 +45,6 @@ export const likePost = async (postId, token, feedDispatch) => {
             },
         )
 
-        console.log(data?.posts);
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
         }
@@ -62,7 +61,6 @@ export const deletePost = async (postId, token, feedDispatch) => {
                 headers: { authorization: token },
             }
         )
-        console.log(data?.posts)
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
         }
@@ -79,7 +77,6 @@ export const editPost = async (feedDispatch, token, postContent, postId) => {
                 headers: { authorization: token },
             }
         )
-        console.log(data?.posts)
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
         }
@@ -88,4 +85,21 @@ export const editPost = async (feedDispatch, token, postContent, postId) => {
         console.error(err)
     }
 
+}
+
+export const addPostComment = async (post, commentData, token, feedDispatch) => {
+    try {
+        const { data, status } = await axios.post(`/api/comments/add/${post?._id}`,
+            { commentData },
+            {
+                headers: { authorization: token },
+
+            })
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_COMMENT_MODAL", payload: false })
+        }
+    } catch (err) {
+        console.error(err);
+    }
 }
