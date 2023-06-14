@@ -8,16 +8,19 @@ import { feedContext } from "../../Context/FeedContext";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
+import { sortByDate } from "../../utils/utils";
 
 export const Home = () => {
     const { authState } = useContext(authContext);
     const { feedState } = useContext(feedContext);
-    const { isLoading, userFeed, users } = feedState;
-    const loggedInUser = users.find(user => user?.username === authState?.user?.username)
+    const { token } = authState;
+    const { isLoading, userFeed, users, activeSort, editPostModal } = feedState;
+    const loggedInUser = authState?.user
     const followingUsers = loggedInUser?.following
     var postOfFollowingUsers = userFeed?.filter(post => followingUsers?.some(followingUser => followingUser?.username === post?.username))
     const postsOfUser = userFeed?.filter(post => post?.username === loggedInUser?.username)
     const timelinePosts = [...postOfFollowingUsers, ...postsOfUser]
+    const sortedPosts = sortByDate(timelinePosts, activeSort)
 
     return (
 
@@ -32,13 +35,13 @@ export const Home = () => {
                 <div>
                     <h1>Home</h1>
                 </div>
-                <NewPost loggedInUser={loggedInUser} />
+                <NewPost loggedInUser={loggedInUser} token={token} />
                 <SortBar />
                 {isLoading
                     ? <p>Loading...</p>
-                    : timelinePosts?.length
-                        ? timelinePosts.map(feed => (
-                            <PostCard post={feed} key={feed?._id} />
+                    : sortedPosts?.length
+                        ? sortedPosts.map(feed => (
+                            <PostCard post={feed} key={feed?._id} token={token} loggedInUser={loggedInUser} editPostModal={editPostModal} users={users} />
                         ))
                         : <div>No Posts</div>
                 }
@@ -47,7 +50,7 @@ export const Home = () => {
                 <SearchBar search={feedState?.search} users={users} />
             </div>
             <div>
-                <SuggestedUsers users={users} loggedInUser={loggedInUser} />
+                <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
             </div>
         </div>
     )

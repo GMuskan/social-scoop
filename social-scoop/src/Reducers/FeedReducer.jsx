@@ -3,7 +3,11 @@ export const feedInitialState = {
     isLoading: true,
     users: [],
     search: "",
-    searchModal: false
+    searchModal: false,
+    newPostContent: "",
+    newPostImage: null,
+    activeSort: "Latest",
+    editPostModal: false
 }
 
 export const FeedReducer = (state, action) => {
@@ -18,6 +22,14 @@ export const FeedReducer = (state, action) => {
             return { ...state, search: action.payload }
         case "SET_SEARCH_MODAL":
             return { ...state, searchModal: action.payload }
+        case "SET_NEW_POST_CONTENT":
+            return { ...state, newPostContent: action.payload }
+        case "SET_NEW_POST_IMAGE":
+            return { ...state, newPostImage: action.payload }
+        case "SET_ACTIVE_SORT":
+            return { ...state, activeSort: action.payload }
+        case "SET_EDIT_POST_MODAL":
+            return {...state, editPostModal: action.payload}
         default:
             return state
     }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const getAllPosts = async (feedDispatch) => {
     try {
@@ -12,7 +13,79 @@ export const getAllPosts = async (feedDispatch) => {
         feedDispatch({ type: "SET_LOADING", payload: true })
         console.error(err)
     }
-    
-    
+}
+
+export const addPost = async (postContent, newPostImage, loggedInUser, token, feedDispatch) => {
+    try {
+        const { status, data } = await axios.post("/api/posts",
+            {
+                postData: { content: postContent, postImage: newPostImage, fullName: loggedInUser?.fullName }
+            },
+            {
+                headers: { authorization: token },
+            }
+        )
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            toast.success("Post Added!")
+        }
+        feedDispatch({ type: "SET_NEW_POST_CONTENT", payload: "" })
+        feedDispatch({ type: "SET_NEW_POST_IMAGE", payload: null })
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const likePost = async (postId, token, feedDispatch) => {
+    try {
+        const { data, status } = await axios.post(`/api/posts/like/${postId}`,
+            {},
+            {
+                headers: { authorization: token },
+            },
+        )
+
+        console.log(data?.posts);
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+}
+
+export const deletePost = async (postId, token, feedDispatch) => {
+    try {
+        const { data, status } = await axios.delete(`/api/posts/${postId}`,
+            {
+                headers: { authorization: token },
+            }
+        )
+        console.log(data?.posts)
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+        }
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const editPost = async (feedDispatch, token, postContent, postId) => {
+    try {
+        const { status, data } = await axios.post(`/api/posts/edit/${postId}`,
+            { postData: { content: postContent } },
+            {
+                headers: { authorization: token },
+            }
+        )
+        console.log(data?.posts)
+        if (status === 201) {
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
+        }
+
+    } catch (err) {
+        console.error(err)
+    }
 
 }
