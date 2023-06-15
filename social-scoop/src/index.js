@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from './Context/AuthContext';
+import { FeedProvider } from './Context/FeedContext';
 
 // Call make Server
 makeServer();
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
-        <App />
+        <FeedProvider>
+          <App />
+        </FeedProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>

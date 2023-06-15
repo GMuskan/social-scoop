@@ -7,21 +7,19 @@ import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 
-export const Bookmark = () => {
+export const Explore = () => {
     const { authState } = useContext(authContext);
     const { feedState } = useContext(feedContext);
-    const { bookmarks, token } = authState;
-    const { isLoading, users, userFeed } = feedState;
+    const { token } = authState;
+    const { isLoading, userFeed, users, editPostModal, commentModal, activePost } = feedState;
     const loggedInUser = authState?.user
 
-    const bookmarkedPosts = userFeed.filter((dbPost) =>
-        bookmarks.find((bookmark) => bookmark === dbPost._id)
-    );
+
     return (
         <div>
             <Helmet>
                 <title>
-                    Bookmarks | Social-Scoop
+                    Explore | Social-Scoop
                 </title>
             </Helmet>
             <NavBar />
@@ -29,18 +27,26 @@ export const Bookmark = () => {
             <div>
                 <div>
                     <h1>
-                        Bookmarks
+                        Explore
                     </h1>
                 </div>
 
                 <div>
                     {isLoading ? (
                         <p>Loading...</p>
-                    ) : bookmarkedPosts.length ? (
-                        [...bookmarkedPosts]
+                    ) : userFeed.length ? (
+                        [...userFeed]
                             .reverse()
-                            .map((bookmarkedPost) => (
-                                <PostCard post={bookmarkedPost} key={bookmarkedPost._id} token={token} />
+                            .map((feed) => ( feed?.username!==loggedInUser?.username &&
+                                <PostCard
+                                post={feed}
+                                key={feed._id}
+                                token={token}
+                                loggedInUser={loggedInUser}
+                                editPostModal={editPostModal}
+                                users={users}
+                                commentModal={commentModal}
+                                activePost={activePost}/>
                             ))
                     ) : (
                         <div>No bookmarks</div>

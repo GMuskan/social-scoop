@@ -10,7 +10,7 @@ export const users = [
     fullName: "Muskan Gupta",
     username: "muskan09",
     password: "muskan#123",
-    bio: "Hey there, Muskan here",
+    bio: "Heyaa, Muskan here",
     website: "https://github.com/GMuskan/social-scoop",
     profileAvatar:
       "https://picsum.photos/id/1012/150",
@@ -38,13 +38,14 @@ export const users = [
           "https://picsum.photos/id/1005/150"
       },
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
     fullName: "John Doe",
     username: "johndoe",
     password: "123john",
-    bio: "Hey there, John here",
+    bio: "Hi, John here",
     website: "https://www.johndoe.com",
     profileAvatar:
       "https://picsum.photos/id/1009/150",
@@ -70,13 +71,14 @@ export const users = [
           "https://picsum.photos/id/1012/150",
       }
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
     fullName: "Anshaal Khanna",
     username: "anshaal10",
     password: "anshaal123",
-    bio: "Hey there, Anshaal here",
+    bio: "Hey, Anshaal here",
     website: "https://www.nike.com",
     profileAvatar:
       "https://picsum.photos/id/1005/150",
@@ -98,13 +100,14 @@ export const users = [
           "https://picsum.photos/id/100/150"
       },
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
     fullName: "Aditya Jadhav",
     username: "aditya_jadhav",
     password: "jadhav123",
-    bio: "Hello Fritter, Jadhav here!",
+    bio: "Hello, Jadhav here!",
     website: "https://www.wikipedia.com",
     profileAvatar:
       "https://picsum.photos/id/100/150",
@@ -130,5 +133,6 @@ export const users = [
           "https://picsum.photos/id/1005/150"
       },
     ],
+    bookmarks: []
   },
 ];
