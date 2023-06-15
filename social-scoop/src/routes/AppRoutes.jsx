@@ -5,6 +5,7 @@ import { Home } from "../Pages/Home/Home"
 import { PrivateRoute } from "./PrivateRoutes"
 import { Explore } from "../Pages/Explore/Explore"
 import { Bookmark } from "../Pages/Bookmark/Bookmark"
+import { UserProfile } from "../Pages/UserProfile/UserProfile"
 
 export const AppRoutes = () => {
     return (
@@ -25,6 +26,11 @@ export const AppRoutes = () => {
                 <Route path="/bookmarks" element={
                     <PrivateRoute>
                         <Bookmark />
+                    </PrivateRoute>
+                } />
+                <Route path="/profile/:username" element={
+                    <PrivateRoute>
+                        <UserProfile />
                     </PrivateRoute>
                 } />
             </Routes>

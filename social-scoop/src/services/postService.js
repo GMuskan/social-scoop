@@ -56,7 +56,7 @@ export const likePost = async (postId, token, feedDispatch) => {
 
 export const dislikePost = async (postId, token, feedDispatch) => {
     try {
-        const {status, data} = await axios.post(
+        const { status, data } = await axios.post(
             `/api/posts/dislike/${postId}`,
             {},
             {

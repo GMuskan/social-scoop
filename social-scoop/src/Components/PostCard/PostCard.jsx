@@ -3,7 +3,7 @@ import { addPostComment, deletePost, dislikePost, likePost } from "../../service
 import { getPostDate, postInBookmarks } from "../../utils/utils"
 import { feedContext } from "../../Context/FeedContext"
 import { EditPostModal } from "../EditPostModal/EditPostModal"
-import { addBookmark, removeBookmark, unfollowUser } from "../../services/userService"
+import { addBookmark, followUser, removeBookmark, unfollowUser } from "../../services/userService"
 import { authContext } from "../../Context/AuthContext"
 
 export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
@@ -14,6 +14,13 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
         const userId = users.find(item => item?.username === post?.username)._id
         unfollowUser(userId, token, authDispatch)
     }
+
+    const handleFollowClick = (post) => {
+        const userId = users.find(item => item?.username === post?.username)._id
+        followUser(userId, token, authDispatch)
+    }
+
+
 
     const { feedDispatch } = useContext(feedContext);
 
@@ -33,9 +40,13 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                             }}></i>
                             <i className="fa fa-trash" aria-hidden="true" onClick={() => deletePost(post?._id, token, feedDispatch)}></i>
                         </span>
-                        : <button onClick={() => {
-                            handleUnfollowClick(post)
-                        }}>Unfollow</button>
+                        : loggedInUser?.following?.find(item => item.username === post.username) ?
+                            <button onClick={() => {
+                                handleUnfollowClick(post)
+                            }}>Unfollow</button>
+                            : <button onClick={() => {
+                                handleFollowClick(post)
+                            }}>Follow</button>
                     }
                 </div>
             </div>

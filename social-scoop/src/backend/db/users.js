@@ -38,6 +38,7 @@ export const users = [
           "https://picsum.photos/id/1005/150"
       },
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
@@ -70,6 +71,7 @@ export const users = [
           "https://picsum.photos/id/1012/150",
       }
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
@@ -98,6 +100,7 @@ export const users = [
           "https://picsum.photos/id/100/150"
       },
     ],
+    bookmarks: []
   },
   {
     _id: uuid(),
@@ -130,5 +133,6 @@ export const users = [
           "https://picsum.photos/id/1005/150"
       },
     ],
+    bookmarks: []
   },
 ];

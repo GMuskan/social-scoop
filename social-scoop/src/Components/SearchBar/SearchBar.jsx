@@ -20,7 +20,6 @@ export const SearchBar = ({ search, users }) => {
                 ? <SearchModal searchResult={searchResult} />
                 : null
             }
-            {/* {searchModal && <SearchModal searchResult={searchResult} />} */}
         </div>
 
     )

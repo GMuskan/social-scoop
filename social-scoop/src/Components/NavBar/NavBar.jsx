@@ -20,21 +20,18 @@ export const NavBar = () => {
                 <li>
                     <i className="fa fa-bookmark" aria-hidden="true" onClick={() => navigate("/bookmarks")}></i>
                 </li>
-                {/* <li>
-                    <i className="fa fa-plus-circle" aria-hidden="true" onClick={() => feeddispatch({ type: "SET_CREATE_POST_MODAL", payload: true })}></i>
-                </li> */}
                 <li>
                     <i className="fa fa-sign-out" aria-hidden="true" onClick={() => logoutClickHandler(navigate, authState, authDispatch)} />
                 </li>
             </ul>
             <ul>
-                <div>
+                <div onClick={() => navigate(`/profile/${authState?.user?.username}`)}>
                     <div>
                         <img src={authState?.user?.profileAvatar} alt="loggedIn_user_image" />
                     </div>
                     <div>
                         <p>{authState?.user?.fullName}</p>
-                        <p>@{authState?.user?.fullName}</p>
+                        <p>@{authState?.user?.username}</p>
                     </div>
                 </div>
             </ul>
