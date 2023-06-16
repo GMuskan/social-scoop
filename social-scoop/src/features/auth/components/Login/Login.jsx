@@ -28,7 +28,7 @@ export const Login = () => {
             </Helmet>
             <div className="login-form">
                 <div className="app-name-section">
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <i className="fa fa-cutlery" aria-hidden="true"></i>
                     <article>Social Scoop</article>
                 </div>
                 <div className="about-app-section">

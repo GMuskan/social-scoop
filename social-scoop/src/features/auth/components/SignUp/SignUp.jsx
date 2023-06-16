@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { SignUpClickHandler } from "../../../../services/authService"
 import { authContext } from "../../../../Context/AuthContext";
 import { Helmet } from "react-helmet";
-
+import "./SignUp.css"
 
 export const SignUp = () => {
 
@@ -35,22 +35,23 @@ export const SignUp = () => {
                 </title>
             </Helmet>
             <div className="signup-form">
-                <div>
-                    <h1>social-scoop</h1>
+                <div className="app-name-section">
+                    <i className="fa fa-cutlery" aria-hidden="true"></i>
+                    <article>Social Scoop</article>
                 </div>
-                <div>
+                <div className="about-app-section">
                     <span>Social media for Foodies!</span>
                 </div>
-                <div>
-                    <h1>Sign Up</h1>
+                <div className="signup">
+                    <h2>Sign Up</h2>
                 </div>
-                <div>
+                <div className="signup-credentials">
                     <form autoComplete="off"
                         onSubmit={(e) => {
                             e.preventDefault();
                             SignUpClickHandler(signUp, navigate, authDispatch)
                         }}>
-                        <div>
+                        <div className="signup-fullName">
                             <label htmlFor="fullName">Full Name<span>*</span></label>
                             <input
                                 type="text"
@@ -59,9 +60,8 @@ export const SignUp = () => {
                                 value={signUp?.input?.fullName || ""}
                                 onChange={signUpInputHandler}
                             />
-
                         </div>
-                        <div>
+                        <div className="signup-username">
                             <label htmlFor="username">Username<span>*</span></label>
                             <input
                                 type="text"
@@ -71,44 +71,49 @@ export const SignUp = () => {
                                 onChange={signUpInputHandler}
                             />
                         </div>
-                        <div>
+                        <div className="signup-password">
                             <label htmlFor="password">Password<span>*</span></label>
-                            <input
-                                type={signUp?.hide?.password ? "password" : "text"}
-                                name="password"
-                                id="password"
-                                value={signUp?.input?.password || ""}
-                                onChange={signUpInputHandler}
-                            />
-                            <i className={signUp?.hide?.password ? "fa fa-eye-slash" : "fa fa-eye"} onClick={() => setSignUp({
-                                ...signUp,
-                                hide: { ...signUp?.hide, password: !signUp.hide?.password }
-                            })}></i>
-                        </div>
-                        <div>
-                            <div>
-                                <label htmlFor="confirm-password">Confirm Password<span>*</span></label>
+                            <span className="signup-password-span">
                                 <input
-                                    type={signUp?.hide?.confirmPassword ? "password" : "text"}
-                                    name="confirmPassword"
-                                    id="confirmPassword"
-                                    value={signUp?.input?.confirmPassword || ""}
+                                    type={signUp?.hide?.password ? "password" : "text"}
+                                    name="password"
+                                    id="password"
+                                    value={signUp?.input?.password || ""}
                                     onChange={signUpInputHandler}
                                 />
-                                <i className={signUp?.hide?.confirmPassword ? "fa fa-eye-slash" : "fa fa-eye"} onClick={() => setSignUp({
+                                <i className={signUp?.hide?.password ? "fa fa-eye-slash" : "fa fa-eye"} onClick={() => setSignUp({
                                     ...signUp,
-                                    hide: { ...signUp?.hide, confirmPassword: !signUp.hide?.confirmPassword }
+                                    hide: { ...signUp?.hide, password: !signUp.hide?.password }
                                 })}></i>
+                            </span>
+                        </div>
+                        <div className="confirm-password">
+                            <div className="signup-confirmPassword">
+                                <label htmlFor="confirm-password">Confirm Password<span>*</span></label>
+                                <span className="signup-confirmPassword-span">
+                                    <input
+                                        type={signUp?.hide?.confirmPassword ? "password" : "text"}
+                                        name="confirmPassword"
+                                        id="confirmPassword"
+                                        value={signUp?.input?.confirmPassword || ""}
+                                        onChange={signUpInputHandler}
+                                    />
+                                    <i className={signUp?.hide?.confirmPassword ? "fa fa-eye-slash" : "fa fa-eye"} onClick={() => setSignUp({
+                                        ...signUp,
+                                        hide: { ...signUp?.hide, confirmPassword: !signUp.hide?.confirmPassword }
+                                    })}></i>
+                                </span>
                             </div>
                             {!signUp?.passwordMatch ? (
-                                <div>Password do not Match</div>
+                                <div className="pwd-not-matching">Password do not Match</div>
                             ) : null}
                         </div>
-                        <button type="submit" disabled={!signUp?.passwordMatch}>Create Account</button>
-
+                        <div>
+                            <button className="signup-btn" type="submit" disabled={!signUp?.passwordMatch}>Create Account</button>
+                        </div>
                     </form>
                 </div>
-                <div>
+                <div className="login-section">
                     <span>Already have an account?</span>
                     <Link to="/">
                         Login

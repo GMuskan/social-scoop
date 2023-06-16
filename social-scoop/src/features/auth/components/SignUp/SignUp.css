@@ -1,0 +1,116 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10rem;
+    margin: auto;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form .app-name-section {
+    padding: 0.2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form .about-app-section {
+    font-size: 1.3rem;
+}
+
+.signup-credentials form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-fullName {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0.5rem;
+}
+
+.signup-fullName input {
+    padding: 0.5rem;
+    border: 2px solid black;
+}
+
+.signup-username {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0.5rem;
+}
+
+.signup-username input {
+    padding: 0.5rem;
+    border: 2px solid black;
+}
+
+.signup-password {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0.6rem;
+}
+
+.signup-password input {
+    width: 14rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+
+.signup-password-span {
+    border: 1px ridge black;
+}
+
+.signup-password i {
+    font-size: 1.5rem;
+    
+}
+
+.signup-confirmPassword {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0.6rem;
+}
+
+.signup-confirmPassword input {
+    width: 14rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+
+.signup-confirmPassword-span {
+    border: 1px ridge black;
+}
+
+.signup-confirmPassword i {
+    font-size: 1.5rem;
+}
+
+.pwd-not-matching{
+    color: red;
+}
+
+.signup-btn {
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 10rem;
+    background-color: chartreuse;
+    font-size: 1.2rem;
+    border: none
+}
+.login-section {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+}

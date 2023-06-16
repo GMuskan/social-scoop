@@ -14,7 +14,7 @@
     flex-direction:column;
 }
 
-.app-name-section{
+ .login-form .app-name-section{
     padding: 0.2rem;
     font-weight: bold;
     font-size: 1.4rem;
@@ -22,7 +22,7 @@
     justify-content: center;
 }
 
-.about-app-section{
+ .login-form .about-app-section{
     font-size: 1.3rem;
 }
 
