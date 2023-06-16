@@ -15,7 +15,7 @@ export const Bookmark = () => {
     const loggedInUser = authState?.user
 
     const bookmarkedPosts = userFeed.filter((dbPost) =>
-        bookmarks.find((bookmark) => bookmark === dbPost._id)
+        bookmarks?.find((bookmark) => bookmark === dbPost._id)
     );
     return (
         <div>
@@ -40,7 +40,7 @@ export const Bookmark = () => {
                         [...bookmarkedPosts]
                             .reverse()
                             .map((bookmarkedPost) => (
-                                <PostCard post={bookmarkedPost} key={bookmarkedPost._id} token={token} />
+                                <PostCard post={bookmarkedPost} key={bookmarkedPost._id} token={token} users={users} loggedInUser={loggedInUser} />
                             ))
                     ) : (
                         <div>No bookmarks</div>

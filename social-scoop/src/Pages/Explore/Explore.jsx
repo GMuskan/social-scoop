@@ -37,16 +37,16 @@ export const Explore = () => {
                     ) : userFeed.length ? (
                         [...userFeed]
                             .reverse()
-                            .map((feed) => ( feed?.username!==loggedInUser?.username &&
+                            .map((feed) => (feed?.username !== loggedInUser?.username &&
                                 <PostCard
-                                post={feed}
-                                key={feed._id}
-                                token={token}
-                                loggedInUser={loggedInUser}
-                                editPostModal={editPostModal}
-                                users={users}
-                                commentModal={commentModal}
-                                activePost={activePost}/>
+                                    post={feed}
+                                    key={feed._id}
+                                    token={token}
+                                    loggedInUser={loggedInUser}
+                                    editPostModal={editPostModal}
+                                    users={users}
+                                    commentModal={commentModal}
+                                    activePost={activePost} />
                             ))
                     ) : (
                         <div>No bookmarks</div>

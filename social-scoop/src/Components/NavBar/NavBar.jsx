@@ -25,7 +25,11 @@ export const NavBar = () => {
                 </li>
             </ul>
             <ul>
-                <div onClick={() => navigate(`/profile/${authState?.user?.username}`)}>
+                <div onClick={() => {
+                    localStorage.setItem("activeUser", JSON.stringify(authState?.user))
+                    authDispatch({ type: "SET_ACTIVE_USER", payload: authState?.user })
+                    navigate(`/profile/${authState?.user.username}`)
+                }}>
                     <div>
                         <img src={authState?.user?.profileAvatar} alt="loggedIn_user_image" />
                     </div>

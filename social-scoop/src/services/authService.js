@@ -85,8 +85,10 @@ export const logoutClickHandler = (navigate, authState, authDispatch) => {
     if (token) {
         authDispatch({ type: "SET_USER", payload: JSON.stringify("") });
         authDispatch({ type: "SET_TOKEN", payload: "" });
+        authDispatch({ type: "SET_ACTIVE_USER", payload: JSON.stringify("") });
         localStorage.removeItem("token")
         localStorage.removeItem("user")
+        localStorage.removeItem("activeUser")
         navigate("/");
         toast.success("Logged Out!")
     } else {

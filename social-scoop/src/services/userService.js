@@ -75,3 +75,21 @@ export const removeBookmark = async (token, postId, authDispatch) => {
     }
 
 }
+
+export const editUserProfile = async (profileDetails, token, authDispatch) => {
+    try {
+        const { status, data } = await axios.post("/api/users/edit",
+            { userData: profileDetails },
+            { headers: { authorization: token } }
+        );
+        //console.log(data)
+        if (status === 201) {
+            toast.success("Profile Updated")
+            localStorage.setItem("user", JSON.stringify(data?.updatedUser))
+            authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.updatedUser) })
+        }
+
+    } catch (err) {
+        console.error(err)
+    }
+}

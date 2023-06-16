@@ -106,6 +106,54 @@ export const posts = [
   {
     _id: uuid(),
     content:
+      "Went to this hangout place, Bob's in Marathalli yesterday. The ambience is real good and the mocktails are really fresh.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+
+    username: "muskan09",
+    fullName: "Muskan Gupta",
+    createdAt: "2022-05-11",
+    postImage: "https://res.cloudinary.com/dwebygldw/image/upload/v1652908952/frittr/zwpmppawiyxwthsmikyk.webp",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment:
+          "Nice!",
+        fullName: "Anshaal Khanna",
+        username: "anshaal10",
+        profileAvatar:
+          "https://picsum.photos/id/1005/150",
+        createdAt: "2022-05-11",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment:
+          "Wow!",
+        fullName: "Aditya Jadhav",
+        username: "aditya_jadhav",
+        profileAvatar:
+          "https://picsum.photos/id/100/150",
+        createdAt: "2022-05-12",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content:
       "Ordered Meghana's Special Chicken Biryani from Meghana's. Recommend 10/10. ✨  "
     ,
     likes: {

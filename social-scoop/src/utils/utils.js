@@ -42,10 +42,9 @@ export const sortByDate = (posts, sortBy) => {
         return [...posts].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
     }
     if (sortBy === "Trending") {
-        return [...posts].sort((a, b) => (a.likes.likeCount + a.comments.length) - (b.likes.likeCount + b.comments.length))
+        return [...posts].sort((a, b) => (b.likes.likeCount + b.comments.length) - (a.likes.likeCount + a.comments.length))
     }
 }
 
 export const postInBookmarks = (bookmarks, postId) => bookmarks?.find(bookmark => bookmark === postId)
-    //  bookmarks.find(bookmark => bookmark === postId)
 

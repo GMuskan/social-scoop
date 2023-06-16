@@ -50,6 +50,7 @@ export const Home = () => {
                                 users={users}
                                 commentModal={commentModal}
                                 activePost={activePost}
+
                             />
                         ))
                         : <div>No Posts</div>

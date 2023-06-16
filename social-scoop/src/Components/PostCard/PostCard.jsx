@@ -5,8 +5,10 @@ import { feedContext } from "../../Context/FeedContext"
 import { EditPostModal } from "../EditPostModal/EditPostModal"
 import { addBookmark, followUser, removeBookmark, unfollowUser } from "../../services/userService"
 import { authContext } from "../../Context/AuthContext"
+import { useNavigate } from "react-router"
 
 export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
+    const navigate = useNavigate();
     const [comment, setComment] = useState("");
 
     const { authState, authDispatch } = useContext(authContext);
@@ -24,10 +26,22 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
 
     const { feedDispatch } = useContext(feedContext);
 
+    const profilePicture = users.find(user => user.username === post.username)?.profileAvatar
+
+    const activeUser = users.find(user => user.username === post.username)
+
+    // console.log(activeUser)
     return (
         <div>
             <div>
                 <div>
+                    <img src={profilePicture} alt="profile-pic" />
+                </div>
+                <div onClick={() => {
+                    localStorage.setItem("activeUser", JSON.stringify(activeUser))
+                    authDispatch({ type: "SET_ACTIVE_USER", payload: activeUser })
+                    navigate(`/profile/${post?.username}`)
+                }}>
                     <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
                     <p>{post?.username}</p>
                 </div>
