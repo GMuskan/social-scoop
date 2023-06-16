@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
-import { SignUpClickHandler } from "../../../services/authService"
-import { authContext } from "../../../Context/AuthContext";
+import { SignUpClickHandler } from "../../../../services/authService"
+import { authContext } from "../../../../Context/AuthContext";
 import { Helmet } from "react-helmet";
 
 

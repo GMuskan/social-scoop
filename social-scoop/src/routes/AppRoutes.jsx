@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router"
-import { Login } from "../features/auth/components/Login"
-import { SignUp } from "../features/auth/components/SignUp"
+import { Login } from "../features/auth/components/Login/Login"
+import { SignUp } from "../features/auth/components/SignUp/SignUp"
 import { Home } from "../Pages/Home/Home"
 import { PrivateRoute } from "./PrivateRoutes"
 import { Explore } from "../Pages/Explore/Explore"
@@ -10,9 +10,9 @@ import { useContext } from "react"
 import { authContext } from "../Context/AuthContext"
 
 export const AppRoutes = () => {
-    
+
     const { authState } = useContext(authContext);
-    
+
     const { activeUser } = authState;
     return (
         <div>
