@@ -6,6 +6,7 @@ import { NavBar } from "../../Components/NavBar/NavBar";
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
+import "./Bookmark.css"
 
 export const Bookmark = () => {
     const { authState } = useContext(authContext);
@@ -26,11 +27,14 @@ export const Bookmark = () => {
             </Helmet>
             <NavBar />
 
-            <div>
-                <div>
-                    <h1>
-                        Bookmarks
-                    </h1>
+            <div className="bookmark-container">
+                <div className="bookmark-header">
+                    <div className="bookmark-header-name">
+                        <p>Bookmarks</p>
+                    </div>
+                    <div className="bookmark-search">
+                        <SearchBar search={feedState?.search} users={users} />
+                    </div>
                 </div>
 
                 <div>
@@ -45,12 +49,6 @@ export const Bookmark = () => {
                     ) : (
                         <div>No bookmarks</div>
                     )}
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <SearchBar search={feedState?.search} users={users} />
                 </div>
                 <div>
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />

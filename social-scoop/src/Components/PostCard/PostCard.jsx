@@ -59,7 +59,7 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                             <button className="follow-unfollow-button" onClick={() => {
                                 handleUnfollowClick(post)
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button className="follow-unfollow-button" onClick={() => {
                                 handleFollowClick(post)
                             }}>Follow</button>
                     }

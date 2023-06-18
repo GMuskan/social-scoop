@@ -1,0 +1,28 @@
+.explore-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5rem
+}
+
+.explore-container .explore-header{
+    text-align: left;
+    padding: 0rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    line-height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+.explore-search{
+    position: relative;
+    top: -1rem;
+}
+
+.explore-header-name{
+    font-size: 1rem;
+    font-weight: bold;
+}

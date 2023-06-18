@@ -8,6 +8,7 @@ import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { UserProfileDetails } from "../../Components/UserProfileDetails/UserProfileDetails";
 import { useParams } from "react-router";
+import "./UserProfile.css"
 
 export const UserProfile = () => {
 
@@ -30,15 +31,17 @@ export const UserProfile = () => {
             </Helmet>
             <NavBar />
 
-            <div>
-                <div>
-                    <h1>
-                        {activeUser?.fullName}
-                    </h1>
-                    <p>{activeUserPosts?.length} Posts</p>
+            <div className="profile-container">
+                <div className="profile-header">
+                    <div>
+                        <p className="profile-name">
+                            {activeUser?.fullName}
+                        </p>
+                        <p>{activeUserPosts?.length} Posts</p>
+                    </div>
+                    <SearchBar search={feedState?.search} users={users} /> 
                 </div>
                 <UserProfileDetails activeUser={activeUser} loggedInUser={loggedInUser} />
-
                 <div>
                     {isLoading ? (
                         <p>Loading...</p>
@@ -60,12 +63,6 @@ export const UserProfile = () => {
                     ) : (
                         <div>No Posts</div>
                     )}
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <SearchBar search={feedState?.search} users={users} />
                 </div>
                 <div>
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />

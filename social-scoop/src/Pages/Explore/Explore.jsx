@@ -6,7 +6,7 @@ import { NavBar } from "../../Components/NavBar/NavBar";
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
-
+import "./Explore.css"
 export const Explore = () => {
     const { authState } = useContext(authContext);
     const { feedState } = useContext(feedContext);
@@ -24,11 +24,14 @@ export const Explore = () => {
             </Helmet>
             <NavBar />
 
-            <div>
-                <div>
-                    <h1>
-                        Explore
-                    </h1>
+            <div className="explore-container">
+                <div className="explore-header">
+                    <div className="explore-header-name">
+                        <p>Explore</p>
+                    </div>
+                    <div className="explore-search">
+                        <SearchBar search={feedState?.search} users={users} />
+                    </div>
                 </div>
 
                 <div>
@@ -52,16 +55,17 @@ export const Explore = () => {
                         <div>No bookmarks</div>
                     )}
                 </div>
-            </div>
-
-            <div>
-                <div>
-                    <SearchBar search={feedState?.search} users={users} />
-                </div>
                 <div>
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
                 </div>
             </div>
+
+            {/* <div>
+                
+                <div>
+                    <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
+                </div>
+            </div> */}
         </div>
     );
 };
