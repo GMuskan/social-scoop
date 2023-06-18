@@ -1,0 +1,49 @@
+.newPost{
+   display:flex;
+   flex-direction: column; 
+   border: none;
+   padding: 1rem;
+   padding-bottom: 0rem;
+   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+   height: fit-content;
+   max-width: 100%
+}
+
+.newPost .userProfile .new-post-input{
+    display: flex;
+    justify-self: flex-start;   
+}
+
+.newPost .userProfile .new-post-input img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.newPost .userProfile .new-post-input .new-post-text{
+    border: none;
+    margin-left: 1rem;
+}
+
+.newPost .userProfile .new-post-input .new-post-text:focus{
+    border: none;
+}
+
+.newPost .add-new-post-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+
+.newPost .add-new-post-btn .new-post-file-input i{
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.newPost .add-new-post-btn button{
+    /* padding: 0.5rem; */
+    width: 5rem;
+    background-color: chartreuse;
+    border: none;
+    border-radius: 5px;
+}

@@ -18,8 +18,10 @@ export const LoginClickHandler = async (login, navigate, authDispatch) => {
             if (status === 200) {
                 localStorage.setItem("token", data?.encodedToken)
                 localStorage.setItem("user", JSON.stringify(data?.foundUser))
+                // localStorage.setItem("activeUser", JSON.stringify(data?.foundUser))
+                // authDispatch({ type: "SET_ACTIVE_USER", payload: data?.foundUser })
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
-                authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.foundUser) })
+                authDispatch({ type: "SET_USER", payload: data?.foundUser })
                 navigate("/home")
                 toast.success(
                     `Welcome back, ${data.foundUser.fullName.split(" ")[0]}!`,
@@ -64,7 +66,7 @@ export const SignUpClickHandler = async (signUp, navigate, authDispatch) => {
                 localStorage.setItem("token", data?.encodedToken)
                 localStorage.setItem("user", JSON.stringify(data?.createdUser))
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
-                authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.createdUser) })
+                authDispatch({ type: "SET_USER", payload: data?.createdUser })
                 navigate("/home");
                 toast.success(`Hi, ${data.createdUser.fullName.split(" ")[0]}!`, {
                     icon: "👋",
@@ -85,7 +87,7 @@ export const logoutClickHandler = (navigate, authState, authDispatch) => {
     if (token) {
         authDispatch({ type: "SET_USER", payload: JSON.stringify("") });
         authDispatch({ type: "SET_TOKEN", payload: "" });
-        authDispatch({ type: "SET_ACTIVE_USER", payload: JSON.stringify("") });
+        // authDispatch({ type: "SET_ACTIVE_USER", payload: JSON.stringify("") });
         localStorage.removeItem("token")
         localStorage.removeItem("user")
         localStorage.removeItem("activeUser")

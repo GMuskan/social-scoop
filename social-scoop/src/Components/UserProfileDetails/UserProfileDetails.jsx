@@ -41,10 +41,9 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
                                     {activeUser?.followers?.length} Followers
                                 </p></span>
                         </div>
-
                     </div>
                 </span>
-                {activeUser.username === loggedInUser.username && <div>
+                {activeUser?.username === loggedInUser?.username && <div>
                     <button onClick={() => setEditProfileModal(true)}>Edit Profile</button>
                     {editProfile && <EditProfileModal setEditProfileModal={setEditProfileModal} loggedInUser={loggedInUser} />}
                 </div>}

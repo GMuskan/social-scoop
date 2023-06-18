@@ -9,6 +9,7 @@ import { PostCard } from "../../Components/PostCard/PostCard";
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { sortByDate } from "../../utils/utils";
+import "./Home.css"
 
 export const Home = () => {
     const { authState } = useContext(authContext);
@@ -23,17 +24,21 @@ export const Home = () => {
     const sortedPosts = sortByDate(timelinePosts, activeSort)
 
     return (
-
-        <div>
+        <div className="home-page-container">
             <Helmet>
                 <title>
                     Home | Social-Scoop
                 </title>
             </Helmet>
             <NavBar />
-            <div>
-                <div>
-                    <h1>Home</h1>
+            <div className="home-page">
+                <div className="home-page-header">
+                    <div className="home-page-heading">
+                        <h1>Home</h1>
+                    </div>
+                    <div className="home-page-search-bar">
+                        <SearchBar search={feedState?.search} users={users} />
+                    </div>
                 </div>
                 <NewPost loggedInUser={loggedInUser} token={token} />
                 <SortBar />
@@ -56,10 +61,8 @@ export const Home = () => {
                         : <div>No Posts</div>
                 }
             </div>
-            <div>
-                <SearchBar search={feedState?.search} users={users} />
-            </div>
-            <div>
+
+            <div className="suggestion-card">
                 <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
             </div>
         </div>

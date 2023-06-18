@@ -20,7 +20,7 @@ export const followUser = async (userId, token, authDispatch) => {
         if (status === 200) {
             toast.success(`You started following ${data?.followUser?.fullName}`)
             localStorage.setItem("user", JSON.stringify(data?.user))
-            authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.user) })
+            authDispatch({ type: "SET_USER", payload: data?.user })
         }
     } catch (err) {
         console.error(err)
@@ -36,7 +36,7 @@ export const unfollowUser = async (userId, token, authDispatch) => {
         if (status === 200) {
             toast.error(`You unfollowed ${data?.followUser?.fullName}`)
             localStorage.setItem("user", JSON.stringify(data?.user))
-            authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.user) })
+            authDispatch({ type: "SET_USER", payload: data?.user })
         }
     } catch (err) {
         console.error(err)
@@ -76,17 +76,24 @@ export const removeBookmark = async (token, postId, authDispatch) => {
 
 }
 
-export const editUserProfile = async (profileDetails, token, authDispatch) => {
+export const editUserProfile = async (profileDetails, token, authDispatch, users, feedDispatch) => {
     try {
         const { status, data } = await axios.post("/api/users/edit",
             { userData: profileDetails },
             { headers: { authorization: token } }
         );
-        //console.log(data)
         if (status === 201) {
             toast.success("Profile Updated")
-            localStorage.setItem("user", JSON.stringify(data?.updatedUser))
-            authDispatch({ type: "SET_USER", payload: JSON.stringify(data?.updatedUser) })
+            localStorage.setItem("user", JSON.stringify(data?.user))
+            authDispatch({ type: "SET_USER", payload: data?.user })
+            const newUsers = users.map(user => {
+                if (user.username === data?.user?.username) {
+                    return data?.user
+                }
+                return user;
+            })
+            feedDispatch({ type: "SET_USERS", payload: newUsers })
+            feedDispatch({ type: "SET_FEED", payload: data?.posts })
         }
 
     } catch (err) {

@@ -1,0 +1,31 @@
+.suggested-user{
+    display: flex;
+    flex-direction: column;
+}
+
+.suggested-user-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.suggested-user-card{
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.suggested-user-card img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.suggested-user-card .follow-btn{
+    width: 5rem;
+    background-color: chartreuse;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-top: 0.1rem;
+}

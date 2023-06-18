@@ -1,0 +1,7 @@
+.home-page .home-page-header{
+    display: flex;
+    justify-content: space-around;
+}
+.suggestion-card{
+    margin-bottom: 5rem;
+}

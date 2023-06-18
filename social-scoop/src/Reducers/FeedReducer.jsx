@@ -9,8 +9,7 @@ export const feedInitialState = {
     activeSort: "Latest",
     editPostModal: false,
     commentModal: false,
-    activePost: "",
-    //activeUser: {},
+    activePost: ""
 }
 
 export const FeedReducer = (state, action) => {
@@ -37,8 +36,6 @@ export const FeedReducer = (state, action) => {
             return { ...state, commentModal: action.payload }
         case "SET_ACTIVE_POST":
             return { ...state, activePost: action.payload }
-        // case "SET_ACTIVE_USER":
-        //     return {...state, activeUser: action.payload}
         default:
             return state
     }

@@ -56,30 +56,14 @@ export const editUserHandler = function (schema, request) {
       );
     }
     const { userData } = JSON.parse(request.requestBody);
-    if (userData && userData.username && userData.username !== user.username) {
-      return new Response(
-        404,
-        {},
-        {
-          errors: [
-            "Username cannot be changed",
-          ],
-        }
-      );
-    }
+    user = { ...user, ...userData, updatedAt: formatDate() };
+    this.db.users.update({ _id: user._id }, user);
+    const postInfoToBeUpdated = this.db.posts.filter(post => post.username === user.username)
 
-    const updatedUser = { ...user, ...userData, updatedAt: formatDate() };
-    this.db.users.update({ _id: updatedUser._id }, updatedUser);
-
-    // const postInfoToBeUpdated = this.db.posts.filter(post => post.username === user.username)
-    // console.log(postInfoToBeUpdated)
-    // console.log(updatedUser.fullName, updatedUser.bio, updatedUser.website)
-    // const updatedPosts = postInfoToBeUpdated.map(item => ({ ...item, fullName: updatedUser.fullName }))
-    // console.log(updatedPosts)
-    //this.db.posts.update({ _id: updatedPosts._id }, updatedPosts)
-    //this.db.posts.update(postInfoToBeUpdated.map(item => item._id), [...updatedPosts])
-    //console.log(this.db.posts)
-    return new Response(201, {}, { updatedUser });
+    postInfoToBeUpdated.map(item => (
+      this.db.posts.update({ _id: item._id }, { ...item, fullName: user.fullName, bio: user.bio, website: user.website, profileAvatar: user.profileAvatar })
+    ))
+    return new Response(201, {}, { user, posts: this.db.posts });
   } catch (error) {
     return new Response(
       500,

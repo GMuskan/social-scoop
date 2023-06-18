@@ -1,33 +1,24 @@
 import { useContext, useState } from "react"
 import { authContext } from "../../Context/AuthContext"
 import { editUserProfile } from "../../services/userService";
+import { feedContext } from "../../Context/FeedContext";
 
 export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
     const { authState, authDispatch } = useContext(authContext);
-    // const { feedState, feedDispatch } = useContext(feedContext);
+    const { feedState, feedDispatch } = useContext(feedContext);
     const { token } = authState
-    // const {userFeed, users} = feedState
+    const { users } = feedState
 
     const [profileDetails, setProfileDetails] = useState(loggedInUser)
 
-    // const changeUserFeeds = (profileDetails) => {
-    //     const postsInfoToBeUpdated = userFeed.filter(post => post.username === loggedInUser.username)
-    //     console.log(postsInfoToBeUpdated)
-    //     const updatedPosts = postsInfoToBeUpdated.map(item => ({ ...item, fullName: loggedInUser.fullName, profile }))
-    //     feedDispatch({ type: "SET_FEED", payload: { ...userFeed, postsInfoToBeUpdated } })
-    //     // console.log(updatedUser.fullName, updatedUser.bio, updatedUser.website)
-    //     // const updatedPosts = postInfoToBeUpdated.map(item => ({ ...item, fullName: updatedUser.fullName }))
-    //     // console.log(updatedPosts)
-    // }
     return (
         <div>
             <div>
                 <i className="fa fa-times" aria-hidden="true" onClick={() => setEditProfileModal(false)}></i>
                 <h1>Edit Profile</h1>
                 <button onClick={() => {
-                    editUserProfile(profileDetails, token, authDispatch)
+                    editUserProfile(profileDetails, token, authDispatch, users, feedDispatch)
                     setEditProfileModal(false)
-                    // changeUserFeeds(profileDetails)
                 }}>Save</button>
             </div>
             <div>

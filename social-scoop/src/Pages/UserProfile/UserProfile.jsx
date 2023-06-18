@@ -7,16 +7,20 @@ import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { UserProfileDetails } from "../../Components/UserProfileDetails/UserProfileDetails";
+import { useParams } from "react-router";
 
-export const UserProfile = ({ activeUser }) => {
+export const UserProfile = () => {
+
+    const { username } = useParams()
+
     const { authState } = useContext(authContext);
     const { feedState } = useContext(feedContext);
     const { token } = authState;
     const { isLoading, userFeed, users, editPostModal, commentModal, activePost } = feedState;
     const loggedInUser = authState?.user
-    //const loggedInUserPosts = userFeed?.filter(post => post?.username === loggedInUser?.username)
-
+    const activeUser = users.find(user => user?.username === username)
     const activeUserPosts = userFeed?.filter(post => post?.username === activeUser?.username)
+
     return (
         <div>
             <Helmet>
@@ -46,11 +50,12 @@ export const UserProfile = ({ activeUser }) => {
                                     post={feed}
                                     key={feed._id}
                                     token={token}
-                                    loggedInUser={activeUser.username === loggedInUser.username ? activeUser : loggedInUser}
+                                    loggedInUser={activeUser?.username === loggedInUser?.username ? activeUser : loggedInUser}
                                     editPostModal={editPostModal}
                                     users={users}
                                     commentModal={commentModal}
-                                    activePost={activePost} />
+                                    activePost={activePost}
+                                />
                             )
                     ) : (
                         <div>No Posts</div>

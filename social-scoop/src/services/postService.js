@@ -80,6 +80,7 @@ export const deletePost = async (postId, token, feedDispatch) => {
         )
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            toast.success("Post Deleted!")
         }
     } catch (err) {
         console.error(err)
@@ -96,6 +97,7 @@ export const editPost = async (feedDispatch, token, postContent, postId) => {
         )
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            toast.success("Post Edited!")
         }
 
     } catch (err) {

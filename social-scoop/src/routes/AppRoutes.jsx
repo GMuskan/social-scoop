@@ -6,14 +6,8 @@ import { PrivateRoute } from "./PrivateRoutes"
 import { Explore } from "../Pages/Explore/Explore"
 import { Bookmark } from "../Pages/Bookmark/Bookmark"
 import { UserProfile } from "../Pages/UserProfile/UserProfile"
-import { useContext } from "react"
-import { authContext } from "../Context/AuthContext"
 
 export const AppRoutes = () => {
-
-    const { authState } = useContext(authContext);
-
-    const { activeUser } = authState;
     return (
         <div>
             <Routes>
@@ -36,7 +30,7 @@ export const AppRoutes = () => {
                 } />
                 <Route path="/profile/:username" element={
                     <PrivateRoute>
-                        <UserProfile activeUser={activeUser} />
+                        <UserProfile />
                     </PrivateRoute>
                 } />
             </Routes>

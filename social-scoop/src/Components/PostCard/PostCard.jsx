@@ -6,6 +6,7 @@ import { EditPostModal } from "../EditPostModal/EditPostModal"
 import { addBookmark, followUser, removeBookmark, unfollowUser } from "../../services/userService"
 import { authContext } from "../../Context/AuthContext"
 import { useNavigate } from "react-router"
+import "./PostCard.css"
 
 export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
     const navigate = useNavigate();
@@ -22,30 +23,30 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
         followUser(userId, token, authDispatch)
     }
 
-
-
     const { feedDispatch } = useContext(feedContext);
 
     const profilePicture = users.find(user => user.username === post.username)?.profileAvatar
 
-    const activeUser = users.find(user => user.username === post.username)
+    // const activeUser = users.find(user => user.username === post.username)
 
-    // console.log(activeUser)
+    const [likeColor, setLikeColor] = useState("grey");
+    const [bookmarkColor, setBookmarkColor] = useState("grey")
+
     return (
-        <div>
-            <div>
-                <div>
+        <div className="postcard">
+            <div className="postcard-header">
+                <div className="postcard-header-image">
                     <img src={profilePicture} alt="profile-pic" />
                 </div>
-                <div onClick={() => {
-                    localStorage.setItem("activeUser", JSON.stringify(activeUser))
-                    authDispatch({ type: "SET_ACTIVE_USER", payload: activeUser })
+                <div className="postcard-header-title" onClick={() => {
+                    // localStorage.setItem("activeUser", JSON.stringify(activeUser))
+                    // authDispatch({ type: "SET_ACTIVE_USER", payload: activeUser })
                     navigate(`/profile/${post?.username}`)
                 }}>
                     <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
-                    <p>{post?.username}</p>
+                    <p>@{post?.username}</p>
                 </div>
-                <div>
+                <div className="postcard-header-button-section">
                     {post?.username === loggedInUser?.username
                         ? <span>
                             <i className="fa fa-pencil" aria-hidden="true" onClick={() => {
@@ -55,7 +56,7 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                             <i className="fa fa-trash" aria-hidden="true" onClick={() => deletePost(post?._id, token, feedDispatch)}></i>
                         </span>
                         : loggedInUser?.following?.find(item => item.username === post.username) ?
-                            <button onClick={() => {
+                            <button className="follow-unfollow-button" onClick={() => {
                                 handleUnfollowClick(post)
                             }}>Unfollow</button>
                             : <button onClick={() => {
@@ -64,41 +65,46 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                     }
                 </div>
             </div>
-            <div>
+            <div className="post-content">
                 <p>{post?.content}</p>
             </div>
-            <div>
+            <div className="post-image">
                 {post?.postImage && <img src={post?.postImage} alt="post" />}
             </div>
-            <div>
-                <span>
-                    <div>
-                        <span><i className="fa fa-heart-o" aria-hidden="true"
-                            onClick={() => {
-                                if (post?.likes?.likedBy.some(user => user?._id === loggedInUser?._id)) {
-                                    dislikePost(post?._id, token, feedDispatch)
-                                } else {
-                                    likePost(post?._id, token, feedDispatch)
-                                }
-                            }}
-                        ></i>{post?.likes?.likeCount}</span>
-                    </div>
-                    <div>
-                        <span><i className="fa fa-comment-o" aria-hidden="true" onClick={() => {
-                            feedDispatch({ type: "SET_ACTIVE_POST", payload: post?._id })
-                            feedDispatch({ type: "SET_COMMENT_MODAL", payload: true })
-                        }}></i>{post?.comments?.length}</span>
-                    </div>
-                    <div>
-                        <i className="fa fa-bookmark-o" style={{ color: postInBookmarks(authState?.bookmarks, post?._id) ? "green" : "red" }} aria-hidden="true"
-                            onClick={() => {
-                                postInBookmarks(authState?.bookmarks, post?._id)
-                                    ? removeBookmark(token, post?._id, authDispatch)
-                                    : addBookmark(token, post?._id, authDispatch)
-                            }}
-                        ></i>
-                    </div>
-                </span>
+            <div className="post-action-buttons">
+                <div className="post-card-like-button">
+                    <span><i className="fa fa-heart" style={{ color: post?.likes?.likedBy.some(user => user?._id === loggedInUser?._id) ? "red" : likeColor }} aria-hidden="true"
+                        onClick={() => {
+                            if (post?.likes?.likedBy.some(user => user?._id === loggedInUser?._id)) {
+                                dislikePost(post?._id, token, feedDispatch)
+                                setLikeColor("grey");
+
+                            } else {
+                                likePost(post?._id, token, feedDispatch)
+                                setLikeColor("red");
+                            }
+                        }}
+                    ></i>{post?.likes?.likeCount}</span>
+                </div>
+                <div className="post-card-comment-button">
+                    <span><i className="fa fa-comment-o" aria-hidden="true" onClick={() => {
+                        feedDispatch({ type: "SET_ACTIVE_POST", payload: post?._id })
+                        feedDispatch({ type: "SET_COMMENT_MODAL", payload: true })
+                    }}></i>{post?.comments?.length}</span>
+                </div>
+                <div className="post-card-bookmark-button">
+                    <i className="fa fa-bookmark" style={{ color: postInBookmarks(authState?.bookmarks, post?._id) ? "limeGreen" : bookmarkColor }} aria-hidden="true"
+                        onClick={() => {
+                            if (postInBookmarks(authState?.bookmarks, post?._id)) {
+                                removeBookmark(token, post?._id, authDispatch)
+                                setBookmarkColor("grey")
+                            } else {
+                                addBookmark(token, post?._id, authDispatch)
+                                setBookmarkColor("limeGreen")
+                            }
+                        }}
+                    ></i>
+                </div>
             </div>
             {post?._id === activePost && commentModal &&
                 <div>
