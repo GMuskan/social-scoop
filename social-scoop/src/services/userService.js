@@ -11,7 +11,7 @@ export const getAllUsers = async (feedDispatch) => {
     }
 }
 
-export const followUser = async (userId, token, authDispatch) => {
+export const followUser = async (userId, token, authDispatch, feedState, feedDispatch) => {
     try {
         const { status, data } = await axios.post(`/api/users/follow/${userId}`,
             {},
@@ -19,8 +19,21 @@ export const followUser = async (userId, token, authDispatch) => {
         )
         if (status === 200) {
             toast.success(`You started following ${data?.followUser?.fullName}`)
-            localStorage.setItem("user", JSON.stringify(data?.user))
-            authDispatch({ type: "SET_USER", payload: data?.user })
+            const currUser = JSON.parse(localStorage.getItem("user")).username
+            const currUserImage = feedState?.users.find(user => user.username === currUser).profileAvatar
+            localStorage.setItem("user", JSON.stringify({ ...data?.user, profileAvatar: currUserImage }))
+            authDispatch({ type: "SET_USER", payload: { ...data?.user, profileAvatar: currUserImage } })
+            const updatedUsers = feedState?.users.map(user => {
+
+                if (user.username === data?.user.username) {
+                    return { ...data?.user, profileAvatar: currUserImage }
+                } else if (user.username === data?.followUser.username) {
+                    return { ...user, followers: [...user.followers, data?.user] }
+                }
+                else
+                    return user
+            })
+            feedDispatch({ type: "SET_USERS", payload: updatedUsers })
         }
     } catch (err) {
         console.error(err)

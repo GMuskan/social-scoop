@@ -5,6 +5,8 @@ import "./NewPost.css"
 
 export const NewPost = ({ loggedInUser, token, post }) => {
     const { feedDispatch, feedState } = useContext(feedContext);
+    const { users } = feedState
+
     const addImageToNewPost = (e) => {
         feedDispatch({ type: "SET_NEW_POST_IMAGE", payload: URL.createObjectURL(e.target.files[0]) })
     }
@@ -12,9 +14,11 @@ export const NewPost = ({ loggedInUser, token, post }) => {
         <div className="newPost">
             <div className="userProfile">
                 <div className="new-post-input">
-                    {loggedInUser?.profileAvatar ? <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" /> : <i className="fa fa-user-circle-o" aria-hidden="true"></i>}
+                    {loggedInUser?.profileAvatar ?
+                        <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
+                        : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                     <input className="new-post-text" type="text" placeholder="What's happening?" value={feedState?.newPostContent} onChange={(e) => feedDispatch({ type: "SET_NEW_POST_CONTENT", payload: e.target.value })} />
-                </div> 
+                </div>
             </div>
             <div className="add-new-post-btn">
                 <div className="new-post-file-input">

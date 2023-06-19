@@ -43,7 +43,7 @@ export const LoginClickHandler = async (login, navigate, authDispatch) => {
 
 }
 
-export const SignUpClickHandler = async (signUp, navigate, authDispatch) => {
+export const SignUpClickHandler = async (signUp, navigate, authDispatch, feedDispatch, feedState) => {
     if (!signUp.input.username && !signUp.input.password && !signUp.input.fullName && !signUp.input.confirmPassword) {
         toast.error("Please enter all details");
         navigate("/signup");
@@ -64,9 +64,11 @@ export const SignUpClickHandler = async (signUp, navigate, authDispatch) => {
             const { status, data } = await axios.post("/api/auth/signup", signUp.input);
             if (status === 201) {
                 localStorage.setItem("token", data?.encodedToken)
-                localStorage.setItem("user", JSON.stringify(data?.createdUser))
+                localStorage.setItem("user", JSON.stringify({ ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" }))
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
-                authDispatch({ type: "SET_USER", payload: data?.createdUser })
+                authDispatch({ type: "SET_USER", payload: { ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" } })
+                const updatedUsers = [...feedState?.users, { ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" }]
+                feedDispatch({ type: "SET_USERS", payload: updatedUsers })
                 navigate("/home");
                 toast.success(`Hi, ${data.createdUser.fullName.split(" ")[0]}!`, {
                     icon: "👋",

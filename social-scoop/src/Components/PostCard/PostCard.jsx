@@ -109,7 +109,9 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
             {post?._id === activePost && commentModal &&
                 <div>
                     <span>
-                        <img src={loggedInUser?.profileAvatar} alt="user-avatar" />
+                        {loggedInUser?.profileAvatar ?
+                            <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
+                            : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                         <input type="text" placeholder="Post your reply" onChange={(e) => setComment(e.target.value)} />
                     </span>
                     <div>

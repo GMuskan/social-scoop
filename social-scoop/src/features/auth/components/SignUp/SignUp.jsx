@@ -4,10 +4,12 @@ import { SignUpClickHandler } from "../../../../services/authService"
 import { authContext } from "../../../../Context/AuthContext";
 import { Helmet } from "react-helmet";
 import "./SignUp.css"
+import { feedContext } from "../../../../Context/FeedContext";
 
 export const SignUp = () => {
 
     const { authDispatch, navigate } = useContext(authContext);
+    const {feedDispatch, feedState} = useContext(feedContext)
 
     const [signUp, setSignUp] = useState({
         input: {},
@@ -49,7 +51,7 @@ export const SignUp = () => {
                     <form autoComplete="off"
                         onSubmit={(e) => {
                             e.preventDefault();
-                            SignUpClickHandler(signUp, navigate, authDispatch)
+                            SignUpClickHandler(signUp, navigate, authDispatch, feedDispatch, feedState)
                         }}>
                         <div className="signup-fullName">
                             <label htmlFor="fullName">Full Name<span>*</span></label>

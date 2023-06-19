@@ -1,10 +1,14 @@
 // import { useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router"
+import { feedContext } from "../../Context/FeedContext";
 // import { authContext } from "../../Context/AuthContext";
 
 export const FollowModal = ({ loggedInUser, followingList, followerList, setFollowModal }) => {
     const navigate = useNavigate();
     // const { authDispatch } = useContext(authContext);
+    const { feedState } = useContext(feedContext)
+    const {users} = feedState
     return (
         <div>
 
@@ -19,7 +23,9 @@ export const FollowModal = ({ loggedInUser, followingList, followerList, setFoll
                         // onClick={() => navigate(`/profile/${user?.username}`)}
                         >
                             <div>
+                                {user?.profileAvatar ?
                                 <img src={user?.profileAvatar} alt="following-user-pic" />
+                                    : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
                             </div>
                             <div>
                                 <p>{user?.fullName}</p>
@@ -44,7 +50,7 @@ export const FollowModal = ({ loggedInUser, followingList, followerList, setFoll
                             navigate(`/profile/${user?.username}`)
                         }}>
                             <div>
-                                <img src={user?.profileAvatar} alt="follower-user-pic" />
+                                {user?.profileAvatar ? <img src={user?.profileAvatar} alt="follower-user-pic" /> : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
                             </div>
                             <div>
                                 <p>{user?.fullName}</p>

@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { followUser } from "../../services/userService";
 import { authContext } from "../../Context/AuthContext";
 import "./SuggestedUsers.css"
+import { feedContext } from "../../Context/FeedContext";
 export const SuggestedUsers = ({ users, loggedInUser, token }) => {
     const { authDispatch } = useContext(authContext);
+    const { feedState, feedDispatch } = useContext(feedContext);
     const suggestedUsersList = users?.filter(user => user.username !== loggedInUser?.username)?.filter(eachUser => !loggedInUser?.following?.find(item => item.username === eachUser.username))
     return (
         <div className="suggested-user">
@@ -12,10 +14,12 @@ export const SuggestedUsers = ({ users, loggedInUser, token }) => {
                 {suggestedUsersList?.length
                     ? suggestedUsersList.map(user => (
                         <div className="suggested-user-card" key={user._id}>
-                            <img src={user?.profileAvatar} alt="user-iamge" />
+                            {/* {user?.profileAvatar ? */}
+                                <img src={user?.profileAvatar} alt="user-pic" />
+                                {/* : <img src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="default=user-icon" />} */}
                             <div>{user?.fullName}</div>
                             <div>@{user?.username}</div>
-                            <button className="follow-btn" onClick={() => followUser(user?._id, token, authDispatch)}>Follow</button>
+                            <button className="follow-btn" onClick={() => followUser(user?._id, token, authDispatch, feedState, feedDispatch)}>Follow</button>
                         </div>
 
                     )) : <div></div>}

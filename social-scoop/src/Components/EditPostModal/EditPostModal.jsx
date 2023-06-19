@@ -3,8 +3,9 @@ import { feedContext } from "../../Context/FeedContext";
 import { editPost } from "../../services/postService";
 
 export const EditPostModal = ({ post, loggedInUser, token }) => {
-    const { feedDispatch } = useContext(feedContext);
+    const { feedState,feedDispatch } = useContext(feedContext);
     const [postContent, setPostContent] = useState(post?.content)
+    const {users} = feedState
 
     // const addImageToNewPost = (e) => {
     //     feedDispatch({ type: "SET_NEW_POST_IMAGE", payload: URL.createObjectURL(e.target.files[0]) })
@@ -13,7 +14,9 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
         <div>
             <div>Edit Post</div>
             <div>
-                <img src={loggedInUser?.profileAvatar} alt="user-profile-icon" />
+                {loggedInUser?.profileAvatar ?
+                    <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
+                    : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
             </div>
             <input type="textbox" contentEditable="true" value={postContent} onChange={(e) => {
                 setPostContent(e.target.value)

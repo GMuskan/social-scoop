@@ -3,10 +3,14 @@ import { logoutClickHandler } from "../../services/authService";
 import { useContext } from "react";
 import { authContext } from "../../Context/AuthContext";
 import "./NavBar.css";
+import { feedContext } from "../../Context/FeedContext";
 
 export const NavBar = () => {
     const navigate = useNavigate();
     const { authState, authDispatch } = useContext(authContext);
+    const { feedState } = useContext(feedContext)
+
+    const { users } = feedState
     return (
         <aside>
             <div className="action-icons">
@@ -37,12 +41,10 @@ export const NavBar = () => {
                     navigate(`/profile/${authState?.user.username}`)
                 }}>
                     <div >
-                        <img src={authState?.user?.profileAvatar} alt="loggedIn_user_image" />
+                        {authState?.user?.profileAvatar ?
+                            <img src={authState?.user?.profileAvatar} alt="loggedIn_user_image" />
+                            : <img src={users.find(user => user.username === authState?.user?.username).profileAvatar} alt="default-user-icon" />}
                     </div>
-                    {/* <div>
-                        <p>{authState?.user?.fullName}</p>
-                        <p>@{authState?.user?.username}</p>
-                    </div> */}
                 </div>
             </div>
 

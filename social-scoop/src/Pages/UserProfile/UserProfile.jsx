@@ -39,7 +39,7 @@ export const UserProfile = () => {
                         </p>
                         <p>{activeUserPosts?.length} Posts</p>
                     </div>
-                    <SearchBar search={feedState?.search} users={users} /> 
+                    <SearchBar search={feedState?.search} users={users} />
                 </div>
                 <UserProfileDetails activeUser={activeUser} loggedInUser={loggedInUser} />
                 <div>
