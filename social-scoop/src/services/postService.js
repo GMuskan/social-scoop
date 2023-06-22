@@ -90,7 +90,7 @@ export const deletePost = async (postId, token, feedDispatch) => {
 export const editPost = async (feedDispatch, token, postContent, postId) => {
     try {
         const { status, data } = await axios.post(`/api/posts/edit/${postId}`,
-            { postData: { content: postContent } },
+            { postData: { content: postContent?.newPostContent, postImage: postContent?.newPostImage } },
             {
                 headers: { authorization: token },
             }

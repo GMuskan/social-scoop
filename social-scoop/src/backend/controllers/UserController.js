@@ -130,7 +130,7 @@ export const bookmarkPostHandler = function (schema, request) {
     }
     user.bookmarks.push(post._id);
     this.db.users.update({ _id: user._id }, { ...user, updatedAt: formatDate() });
-    return new Response(200, {}, { bookmarks: user.bookmarks });
+    return new Response(200, {}, { user: user, bookmarks: user.bookmarks });
   } catch (error) {
     return new Response(
       500,
@@ -167,7 +167,7 @@ export const removePostFromBookmarkHandler = function (schema, request) {
     const filteredBookmarks = user.bookmarks.filter((currPostId) => currPostId !== postId);
     user = { ...user, bookmarks: filteredBookmarks };
     this.db.users.update({ _id: user._id }, { ...user, updatedAt: formatDate() });
-    return new Response(200, {}, { bookmarks: user.bookmarks });
+    return new Response(200, {}, { user: user, bookmarks: user.bookmarks });
   } catch (error) {
     return new Response(
       500,

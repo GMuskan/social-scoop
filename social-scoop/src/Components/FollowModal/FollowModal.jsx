@@ -1,64 +1,80 @@
-// import { useContext } from "react";
 import { useContext } from "react";
-import { useNavigate } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { feedContext } from "../../Context/FeedContext";
-// import { authContext } from "../../Context/AuthContext";
+import "./FollowModal.css"
+import { followUser, unfollowUser } from "../../services/userService";
+import { authContext } from "../../Context/AuthContext";
 
-export const FollowModal = ({ loggedInUser, followingList, followerList, setFollowModal }) => {
+export const FollowModal = () => {
     const navigate = useNavigate();
-    // const { authDispatch } = useContext(authContext);
-    const { feedState } = useContext(feedContext)
-    const {users} = feedState
+    const { username } = useParams();
+    const { authState, authDispatch } = useContext(authContext);
+    const { token } = authState
+    const { feedState, followerList, followingList, feedDispatch } = useContext(feedContext)
+    const { users } = feedState
+    const following = users?.find(user => user.username === username)?.following
+    const followers = users?.find(user => user.username === username)?.followers
+    
     return (
         <div>
-
             {followingList &&
-                <>
-                    <span>
+                <div className="user-following">
+                    <div className="following-header">
                         <h2>Following</h2>
-                        <i className="fa fa-times" aria-hidden="true" onClick={() => setFollowModal(false)}></i>
-                    </span>
-                    {loggedInUser?.following?.map(user => (
-                        <li key={user?._id}
-                        // onClick={() => navigate(`/profile/${user?.username}`)}
-                        >
-                            <div>
-                                {user?.profileAvatar ?
-                                <img src={user?.profileAvatar} alt="following-user-pic" />
-                                    : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
+                    </div>
+                    {following?.length ? following?.map(user => (
+                        <li key={user?._id}>
+                            <div className="following-user-tag" onClick={() => {
+                                navigate(`/profile/${user?.username}`)
+                            }}>
+                                <div className="following-user-image">
+                                    {user?.profileAvatar ?
+                                        <img src={user?.profileAvatar} alt="following-user-pic" />
+                                        : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
+                                </div>
+                                <div className="following-user-details">
+                                    <p>{user?.fullName}</p>
+                                    <p>@{user?.username}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>{user?.fullName}</p>
-                                <p>{user?.username}</p>
+                            <div className="following-user-unfollow-btn">
+                                <button onClick={() => unfollowUser(user?._id, token, authDispatch, feedState, feedDispatch)}>Unfollow</button>
                             </div>
                         </li>
-                    ))}
-                </>
+                    )) : <div>No following</div>}
+                </div>
             }
 
             {followerList &&
-                <>
-                    <span>
+                <div className="user-followers">
+                    <div className="followers-header">
                         <h2>Followers</h2>
-                        <i className="fa fa-times" aria-hidden="true" onClick={() => setFollowModal(false)}></i>
-                    </span>
-                    {loggedInUser?.followers?.map(user => (
-                        <li key={user?._id} onClick={() => {
-                            setFollowModal(false)
-                            // localStorage.setItem("activeUser", JSON.stringify(user))
-                            // authDispatch({ type: "SET_ACTIVE_USER", payload: user })
-                            navigate(`/profile/${user?.username}`)
-                        }}>
-                            <div>
-                                {user?.profileAvatar ? <img src={user?.profileAvatar} alt="follower-user-pic" /> : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
+                    </div>
+                    {followers?.length ? followers?.map(user => (
+                        <li key={user?._id}>
+                            <div className="followers-user-tag" onClick={() => {
+                                navigate(`/profile/${user?.username}`)
+                            }}>
+                                <div className="followers-user-image">
+                                    {user?.profileAvatar ? <img src={user?.profileAvatar} alt="follower-user-pic" />
+                                        : <img src={users.find(item => item.username === user?.username).profileAvatar} alt="default-user-icon" />}
+                                </div>
+                                <div className="followers-user-details">
+                                    <p>{user?.fullName}</p>
+                                    <p>{user?.username}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>{user?.fullName}</p>
-                                <p>{user?.username}</p>
+                            <div className="followers-user-follow-btn">
+                                {followers.find(item => item.username === user.username) && !following.find(item => item.username === user.username)
+                                    ? <button onClick={() => {
+                                        followUser(user?._id, token, authDispatch, feedState, feedDispatch)
+                                    }}>Follow Back</button>
+                                    : <button>Remove</button>
+                                }
                             </div>
                         </li>
-                    ))}
-                </>
+                    )) : <div>No followers</div>}
+                </div>
             }
         </div>
     )

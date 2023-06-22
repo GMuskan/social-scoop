@@ -11,24 +11,20 @@ import "./PostCard.css"
 export const PostCard = ({ post, token, loggedInUser, editPostModal, users, commentModal, activePost }) => {
     const navigate = useNavigate();
     const [comment, setComment] = useState("");
-
     const { authState, authDispatch } = useContext(authContext);
+    const { feedState, feedDispatch } = useContext(feedContext);
+    
     const handleUnfollowClick = (post) => {
-        const userId = users.find(item => item?.username === post?.username)._id
-        unfollowUser(userId, token, authDispatch)
+        const userId = users?.find(item => item?.username === post?.username)?._id
+        unfollowUser(userId, token, authDispatch, feedState, feedDispatch)
     }
 
     const handleFollowClick = (post) => {
-        const userId = users.find(item => item?.username === post?.username)._id
-        followUser(userId, token, authDispatch)
+        const userId = users?.find(item => item?.username === post?.username)?._id
+        followUser(userId, token, authDispatch, feedState, feedDispatch)
     }
 
-    const { feedDispatch } = useContext(feedContext);
-
     const profilePicture = users.find(user => user.username === post.username)?.profileAvatar
-
-    // const activeUser = users.find(user => user.username === post.username)
-
     const [likeColor, setLikeColor] = useState("grey");
     const [bookmarkColor, setBookmarkColor] = useState("grey")
 
@@ -39,8 +35,6 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                     <img src={profilePicture} alt="profile-pic" />
                 </div>
                 <div className="postcard-header-title" onClick={() => {
-                    // localStorage.setItem("activeUser", JSON.stringify(activeUser))
-                    // authDispatch({ type: "SET_ACTIVE_USER", payload: activeUser })
                     navigate(`/profile/${post?.username}`)
                 }}>
                     <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
@@ -107,14 +101,14 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                 </div>
             </div>
             {post?._id === activePost && commentModal &&
-                <div>
-                    <span>
+                <div className="comment-modal">
+                    <div className="comment-box">
                         {loggedInUser?.profileAvatar ?
                             <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
                             : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                         <input type="text" placeholder="Post your reply" onChange={(e) => setComment(e.target.value)} />
-                    </span>
-                    <div>
+                    </div>
+                    <div className="comment-buttons">
                         <button onClick={() => {
                             feedDispatch({ type: "SET_COMMENT_MODAL", payload: false })
                             feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })

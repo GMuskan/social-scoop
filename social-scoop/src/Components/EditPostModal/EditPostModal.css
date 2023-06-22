@@ -1,0 +1,63 @@
+.edit-post-modal{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-post-modal .edit-post-header{
+    font-size: 2rem;
+}
+
+.edit-post-modal .edit-post-header-section{
+    display: flex;
+}
+
+.edit-post-modal .edit-post-header-section .edit-post-header-image img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.edit-post-modal .edit-post-header-section .edit-post-header-input input {
+    border: none;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    word-wrap: break-word;
+}
+
+.edit-post-modal .edit-post-image {
+    margin-bottom: 1rem;
+}
+.edit-post-modal .edit-post-image img{
+    width: 200px;
+    height: 200px;
+}
+
+.edit-post-modal .edit-post-image i{
+    font-size: 2rem;
+    position: relative;
+    top: -11rem;
+    left: -1rem;
+}
+
+.edit-post-modal .edit-post-buttons button{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    background-color:chartreuse;
+    border-radius: 5px;
+}
+
+.edit-post-modal .edit-post-buttons .btn-cancel{
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.edit-post-modal .edit-post-footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-post-modal .edit-post-footer i{
+    font-size: 2rem;
+    margin: 0.5rem;
+}

@@ -46,5 +46,7 @@ export const sortByDate = (posts, sortBy) => {
     }
 }
 
-export const postInBookmarks = (bookmarks, postId) => bookmarks?.find(bookmark => bookmark === postId)
+export const postInBookmarks = (bookmarks, postId) => {
+    return bookmarks?.find(bookmark => bookmark === postId)
+}
 

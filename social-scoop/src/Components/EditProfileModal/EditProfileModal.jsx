@@ -24,7 +24,7 @@ export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
             <div>
                 {/* <img src={loggedInUser?.profileAvatar} alt="profile-pic" /> */}
                 {loggedInUser?.profileAvatar ?
-                    <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
+                    <img src={profileDetails?.profileAvatar} alt="loggedIn User icon" />
                     : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                 <label>
                     <input type="file" onChange={(e) => setProfileDetails({ ...profileDetails, profileAvatar: URL.createObjectURL(e.target.files[0]) })} hidden />

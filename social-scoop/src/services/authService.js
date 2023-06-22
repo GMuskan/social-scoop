@@ -18,10 +18,9 @@ export const LoginClickHandler = async (login, navigate, authDispatch) => {
             if (status === 200) {
                 localStorage.setItem("token", data?.encodedToken)
                 localStorage.setItem("user", JSON.stringify(data?.foundUser))
-                // localStorage.setItem("activeUser", JSON.stringify(data?.foundUser))
-                // authDispatch({ type: "SET_ACTIVE_USER", payload: data?.foundUser })
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
                 authDispatch({ type: "SET_USER", payload: data?.foundUser })
+                authDispatch({ type: "SET_BOOKMARKS", payload: data?.foundUser?.bookmarks })
                 navigate("/home")
                 toast.success(
                     `Welcome back, ${data.foundUser.fullName.split(" ")[0]}!`,
@@ -65,8 +64,10 @@ export const SignUpClickHandler = async (signUp, navigate, authDispatch, feedDis
             if (status === 201) {
                 localStorage.setItem("token", data?.encodedToken)
                 localStorage.setItem("user", JSON.stringify({ ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" }))
+                // localStorage.setItem("bookmarks", data?.createdUser?.bookmarks)
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
                 authDispatch({ type: "SET_USER", payload: { ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" } })
+                authDispatch({ type: "SET_BOOKMARKS", payload: data?.createdUser?.bookmarks })
                 const updatedUsers = [...feedState?.users, { ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" }]
                 feedDispatch({ type: "SET_USERS", payload: updatedUsers })
                 navigate("/home");
@@ -89,7 +90,6 @@ export const logoutClickHandler = (navigate, authState, authDispatch) => {
     if (token) {
         authDispatch({ type: "SET_USER", payload: JSON.stringify("") });
         authDispatch({ type: "SET_TOKEN", payload: "" });
-        // authDispatch({ type: "SET_ACTIVE_USER", payload: JSON.stringify("") });
         localStorage.removeItem("token")
         localStorage.removeItem("user")
         localStorage.removeItem("activeUser")

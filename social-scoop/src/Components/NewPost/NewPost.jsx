@@ -18,6 +18,12 @@ export const NewPost = ({ loggedInUser, token, post }) => {
                         <img src={loggedInUser?.profileAvatar} alt="loggedIn User icon" />
                         : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                     <input className="new-post-text" type="text" placeholder="What's happening?" value={feedState?.newPostContent} onChange={(e) => feedDispatch({ type: "SET_NEW_POST_CONTENT", payload: e.target.value })} />
+                    {feedState?.newPostImage &&
+                        <div className="new-post-image">
+                            <img src={feedState?.newPostImage} alt="new-post" />
+                            <i class="fa fa-times-circle" aria-hidden="true" onClick={() => feedDispatch({ type: "SET_NEW_POST_IMAGE", payload: null })}></i>
+                        </div>
+                    }
                 </div>
             </div>
             <div className="add-new-post-btn">

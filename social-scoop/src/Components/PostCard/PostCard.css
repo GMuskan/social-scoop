@@ -33,6 +33,7 @@
 
 .postcard-header-button-section i{
     font-size: 1.5rem;
+    padding: 0.5rem;
 }
 
 .postcard .post-content{
@@ -80,4 +81,34 @@
     font-size: 1.5rem;
     margin-right: 1rem;
     padding: 0.5rem;
+}
+
+.comment-modal{
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.comment-modal .comment-box{
+    display: flex;
+}
+
+.comment-modal .comment-box img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* margin-right: 1rem; */
+}
+.comment-modal .comment-box input {
+    padding: 0.8rem;
+}
+
+.comment-modal .comment-buttons button{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: chartreuse;
+    border-radius: 5px;
+
 }

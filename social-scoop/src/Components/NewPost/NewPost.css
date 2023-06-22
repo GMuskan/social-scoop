@@ -29,6 +29,19 @@
     border: none;
 }
 
+.newPost .userProfile .new-post-input .new-post-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 0;
+    margin-left: 1rem;
+}
+
+.newPost .userProfile .new-post-input .new-post-image i {
+   font-size: 1.5rem;
+   position: relative;
+   top: -2.5rem;
+}
+
 .newPost .add-new-post-btn{
     display: flex;
     justify-content: flex-end;

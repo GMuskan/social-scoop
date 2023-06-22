@@ -6,6 +6,7 @@ import { PrivateRoute } from "./PrivateRoutes"
 import { Explore } from "../Pages/Explore/Explore"
 import { Bookmark } from "../Pages/Bookmark/Bookmark"
 import { UserProfile } from "../Pages/UserProfile/UserProfile"
+import { FollowModal } from "../Components/FollowModal/FollowModal"
 
 export const AppRoutes = () => {
     return (
@@ -31,6 +32,16 @@ export const AppRoutes = () => {
                 <Route path="/profile/:username" element={
                     <PrivateRoute>
                         <UserProfile />
+                    </PrivateRoute>
+                } />
+                <Route path="/profile/:username/followers" element={
+                    <PrivateRoute>
+                        <FollowModal />
+                    </PrivateRoute>
+                } />
+                <Route path="/profile/:username/following" element={
+                    <PrivateRoute>
+                        <FollowModal />
                     </PrivateRoute>
                 } />
             </Routes>

@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 /**
  * User Database can be added here.
@@ -6,7 +6,7 @@ import { formatDate } from "../utils/authUtils";
  * */
 export const users = [
   {
-    _id: uuid(),
+    _id: 1,
     fullName: "Muskan Gupta",
     username: "muskan09",
     password: "muskan#123",
@@ -18,7 +18,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(), fullName: "John Doe", username: "johndoe", profileAvatar:
+        _id: 2, fullName: "John Doe", username: "johndoe", profileAvatar:
           "https://picsum.photos/id/1009/150"
       },
 
@@ -26,22 +26,22 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(), fullName: "John Doe", username: "johndoe", profileAvatar:
+        _id: 2, fullName: "John Doe", username: "johndoe", profileAvatar:
           "https://picsum.photos/id/1009/150"
       },
       {
-        _id: uuid(), fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
       {
-        _id: uuid(), fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
     bookmarks: []
   },
   {
-    _id: uuid(),
+    _id: 2,
     fullName: "John Doe",
     username: "johndoe",
     password: "123john",
@@ -53,28 +53,28 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(), fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
+        _id: 1, fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
           "https://picsum.photos/id/1012/150",
       },
       {
-        _id: uuid(), fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
     ],
     followers: [
       {
-        _id: uuid(), fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
       {
-        _id: uuid(), fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
+        _id: 1, fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
           "https://picsum.photos/id/1012/150",
       }
     ],
     bookmarks: []
   },
   {
-    _id: uuid(),
+    _id: 4,
     fullName: "Anshaal Khanna",
     username: "anshaal10",
     password: "anshaal123",
@@ -86,24 +86,24 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(), fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
+        _id: 1, fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
           "https://picsum.photos/id/1012/150",
       },
       {
-        _id: uuid(), fullName: "John Doe", username: "johndoe", profileAvatar:
+        _id: 2, fullName: "John Doe", username: "johndoe", profileAvatar:
           "https://picsum.photos/id/1009/150"
       },
     ],
     followers: [
       {
-        _id: uuid(), fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
     ],
     bookmarks: []
   },
   {
-    _id: uuid(),
+    _id: 3,
     fullName: "Aditya Jadhav",
     username: "aditya_jadhav",
     password: "jadhav123",
@@ -115,21 +115,21 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(), fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
+        _id: 1, fullName: "Muskan Gupta", username: "muskan09", profileAvatar:
           "https://picsum.photos/id/1012/150",
       },
       {
-        _id: uuid(), fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
     followers: [
       {
-        _id: uuid(), fullName: "John Doe", username: "johndoe", profileAvatar:
+        _id: 2, fullName: "John Doe", username: "johndoe", profileAvatar:
           "https://picsum.photos/id/1009/150"
       },
       {
-        _id: uuid(), fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
