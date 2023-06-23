@@ -64,7 +64,6 @@ export const SignUpClickHandler = async (signUp, navigate, authDispatch, feedDis
             if (status === 201) {
                 localStorage.setItem("token", data?.encodedToken)
                 localStorage.setItem("user", JSON.stringify({ ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" }))
-                // localStorage.setItem("bookmarks", data?.createdUser?.bookmarks)
                 authDispatch({ type: "SET_TOKEN", payload: data?.encodedToken })
                 authDispatch({ type: "SET_USER", payload: { ...data?.createdUser, profileAvatar: "https://cdn-icons-png.flaticon.com/128/552/552721.png" } })
                 authDispatch({ type: "SET_BOOKMARKS", payload: data?.createdUser?.bookmarks })

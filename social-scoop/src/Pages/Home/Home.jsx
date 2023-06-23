@@ -38,6 +38,7 @@ export const Home = () => {
                     </div>
                     <div className="home-page-search-bar">
                         <SearchBar search={feedState?.search} users={users} />
+                        {/* <i class="fa fa-search" aria-hidden="true" onClick={() => navigate("/search-users")}></i> */}
                     </div>
                 </div>
                 <NewPost loggedInUser={loggedInUser} token={token} />

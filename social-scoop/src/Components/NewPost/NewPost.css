@@ -51,6 +51,7 @@
 .newPost .add-new-post-btn .new-post-file-input i{
     font-size: 2rem;
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .newPost .add-new-post-btn button{
@@ -59,4 +60,5 @@
     background-color: chartreuse;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }

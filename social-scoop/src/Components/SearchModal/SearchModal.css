@@ -1,0 +1,35 @@
+.searchModalWrapper {
+    background: black;
+    width: 50vw;
+    position: fixed;
+    height: auto;
+    top: 4rem;
+    left: 11rem;
+    z-index: 8888;
+}
+
+.searchModalWrapper .searchModal {
+    position: relative;
+    top: -1rem;
+}
+
+.searchModalWrapper .searchModal .search-user-tag {
+    display: flex;
+    position: relative;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.searchModalWrapper .searchModal .search-user-tag .search-user-details {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.searchModalWrapper .searchModal .search-user-tag img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

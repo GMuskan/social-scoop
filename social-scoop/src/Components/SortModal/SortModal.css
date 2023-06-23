@@ -1,0 +1,39 @@
+.sortModalWrapper{
+    background: black;
+    width: 40vw;
+    position: fixed;
+    height: 15vh;
+    top: 15rem;
+    left: 16rem;
+    z-index: 8888;
+}
+
+.sortModalWrapper .sortModal {
+    position: relative;
+    top: -1rem;
+}
+
+.sortModalWrapper .sortModal ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.sortModalWrapper .sortModal li button{
+    padding: 0.5rem;
+    background-color: black;
+    border: none;
+    width: 8rem;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sortModalWrapper .sortModal li button:focus{
+    color:chartreuse
+}
+
+.sortModalWrapper .sortModal li i {
+    font-size: 1.5rem;
+}

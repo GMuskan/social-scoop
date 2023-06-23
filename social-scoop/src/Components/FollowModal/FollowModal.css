@@ -42,6 +42,7 @@
 
 .user-followers .followers-user-tag{
     display: flex;
+    cursor: pointer;
 }
 .user-followers .followers-user-image img{
     width: 80px;

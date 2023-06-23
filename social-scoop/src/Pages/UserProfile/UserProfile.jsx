@@ -3,7 +3,6 @@ import { authContext } from "../../Context/AuthContext";
 import { feedContext } from "../../Context/FeedContext";
 import { Helmet } from "react-helmet";
 import { NavBar } from "../../Components/NavBar/NavBar";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { UserProfileDetails } from "../../Components/UserProfileDetails/UserProfileDetails";
@@ -39,7 +38,7 @@ export const UserProfile = () => {
                         </p>
                         <p>{activeUserPosts?.length} Posts</p>
                     </div>
-                    <SearchBar search={feedState?.search} users={users} />
+                    {/* <SearchBar search={feedState?.search} users={users} /> */}
                 </div>
                 <UserProfileDetails activeUser={activeUser} loggedInUser={loggedInUser} />
                 <div>

@@ -12,6 +12,7 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
     }
 
     return (
+        <div className="edit-post-modal-wrapper">
         <div className="edit-post-modal">
             <div className="edit-post-header">Edit Post</div>
             <div className="edit-post-header-section">
@@ -57,6 +58,7 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
                         feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
                     }}>Save</button>
                 </div>
+            </div>
             </div>
         </div>
     )

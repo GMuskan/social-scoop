@@ -2,19 +2,16 @@ import { useContext } from "react";
 import { useNavigate, useParams } from "react-router"
 import { feedContext } from "../../Context/FeedContext";
 import "./FollowModal.css"
-import { followUser, unfollowUser } from "../../services/userService";
-import { authContext } from "../../Context/AuthContext";
+import { NavBar } from "../NavBar/NavBar";
 
 export const FollowModal = () => {
     const navigate = useNavigate();
     const { username } = useParams();
-    const { authState, authDispatch } = useContext(authContext);
-    const { token } = authState
-    const { feedState, followerList, followingList, feedDispatch } = useContext(feedContext)
+    const { feedState, followerList, followingList } = useContext(feedContext)
     const { users } = feedState
     const following = users?.find(user => user.username === username)?.following
     const followers = users?.find(user => user.username === username)?.followers
-    
+
     return (
         <div>
             {followingList &&
@@ -37,9 +34,9 @@ export const FollowModal = () => {
                                     <p>@{user?.username}</p>
                                 </div>
                             </div>
-                            <div className="following-user-unfollow-btn">
+                            {/* <div className="following-user-unfollow-btn">
                                 <button onClick={() => unfollowUser(user?._id, token, authDispatch, feedState, feedDispatch)}>Unfollow</button>
-                            </div>
+                            </div> */}
                         </li>
                     )) : <div>No following</div>}
                 </div>
@@ -64,18 +61,19 @@ export const FollowModal = () => {
                                     <p>{user?.username}</p>
                                 </div>
                             </div>
-                            <div className="followers-user-follow-btn">
+                            {/* <div className="followers-user-follow-btn">
                                 {followers.find(item => item.username === user.username) && !following.find(item => item.username === user.username)
-                                    ? <button onClick={() => {
+                                    && <button onClick={() => {
                                         followUser(user?._id, token, authDispatch, feedState, feedDispatch)
                                     }}>Follow Back</button>
-                                    : <button>Remove</button>
                                 }
-                            </div>
+                            </div> */}
                         </li>
                     )) : <div>No followers</div>}
                 </div>
             }
+            <NavBar />
+
         </div>
     )
 }

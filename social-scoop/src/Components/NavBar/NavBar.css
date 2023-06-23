@@ -19,6 +19,7 @@ aside .action-icons{
 
 aside .action-icons .action-icon{
     margin-right: 2rem;
+    cursor: pointer;
 }
 
 aside .user-icon{
@@ -31,4 +32,5 @@ aside .user-icon img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    cursor: pointer;
 }

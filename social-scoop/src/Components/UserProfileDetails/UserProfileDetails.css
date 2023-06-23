@@ -30,6 +30,12 @@
 
 .followers-details{
     display: flex;
+    cursor: pointer;
+}
+
+.followers-details:hover {
+    font-size: 1.1rem;
+    color:green;
 }
 
 .following-count{
@@ -40,4 +46,5 @@
     border-radius: 5px;
     background-color: chartreuse;
     width: 6rem;
+    cursor: pointer;
 }

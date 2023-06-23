@@ -3,22 +3,31 @@ import { followUser } from "../../services/userService";
 import { authContext } from "../../Context/AuthContext";
 import "./SuggestedUsers.css"
 import { feedContext } from "../../Context/FeedContext";
+import { useNavigate } from "react-router";
 export const SuggestedUsers = ({ users, loggedInUser, token }) => {
+    const navigate = useNavigate();
+
     const { authDispatch } = useContext(authContext);
     const { feedState, feedDispatch } = useContext(feedContext);
     const suggestedUsersList = users?.filter(user => user.username !== loggedInUser?.username)?.filter(eachUser => !loggedInUser?.following?.find(item => item.username === eachUser.username))
     return (
         <div className="suggested-user">
-            <h1>Suggestions for you</h1>
+            {suggestedUsersList?.length
+                ? <div>
+                    <h1>Suggestions for you
+                    </h1>
+                </div>
+                : <div></div>
+            }
             <div className="suggested-user-row">
                 {suggestedUsersList?.length
                     ? suggestedUsersList.map(user => (
-                        <div className="suggested-user-card" key={user._id}>
-                            {/* {user?.profileAvatar ? */}
+                        <div className="suggested-user-card" key={user?._id}>
+                            <div onClick={() => navigate(`/profile/${user?.username}`)}>
                                 <img src={user?.profileAvatar} alt="user-pic" />
-                                {/* : <img src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="default=user-icon" />} */}
-                            <div>{user?.fullName}</div>
-                            <div>@{user?.username}</div>
+                                <div>{user?.fullName}</div>
+                                <div>@{user?.username}</div>
+                            </div>
                             <button className="follow-btn" onClick={() => followUser(user?._id, token, authDispatch, feedState, feedDispatch)}>Follow</button>
                         </div>
 

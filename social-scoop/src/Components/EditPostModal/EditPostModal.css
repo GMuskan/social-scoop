@@ -1,3 +1,15 @@
+.edit-post-modal-wrapper{
+    background: lightgrey;
+    width: 80vw;
+    position: fixed;
+    height: auto;
+    top: 15rem;
+    left: 1.5rem;
+    z-index: 8888;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+}
 .edit-post-modal{
     display: flex;
     flex-direction: column;
@@ -37,6 +49,7 @@
     position: relative;
     top: -11rem;
     left: -1rem;
+    cursor: pointer;
 }
 
 .edit-post-modal .edit-post-buttons button{
@@ -45,10 +58,11 @@
     border: none;
     background-color:chartreuse;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .edit-post-modal .edit-post-buttons .btn-cancel{
-    background-color: lightgray;
+    background-color: white;
     border: 1px solid black;
 }
 
@@ -60,4 +74,5 @@
 .edit-post-modal .edit-post-footer i{
     font-size: 2rem;
     margin: 0.5rem;
+    cursor: pointer;
 }

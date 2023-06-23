@@ -109,7 +109,7 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                         <input type="text" placeholder="Post your reply" onChange={(e) => setComment(e.target.value)} />
                     </div>
                     <div className="comment-buttons">
-                        <button onClick={() => {
+                        <button className="cancel-comment-btn" onClick={() => {
                             feedDispatch({ type: "SET_COMMENT_MODAL", payload: false })
                             feedDispatch({ type: "SET_ACTIVE_POST", payload: "" })
                         }}>Cancel</button>

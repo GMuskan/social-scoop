@@ -5,3 +5,9 @@
 .suggestion-card{
     margin-bottom: 5rem;
 }
+
+.home-page .home-page-search-bar i{
+    font-size: 2rem;
+    position: relative;
+    top: 1.5rem;
+}

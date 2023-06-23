@@ -17,11 +17,13 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .postcard .postcard-header .postcard-header-title{
     text-align: left;
     line-height: 1px;
+    cursor: pointer;
 }
 
 .postcard-header-button-section .follow-unfollow-button{
@@ -29,11 +31,13 @@
     border: none;
     background-color: chartreuse;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .postcard-header-button-section i{
     font-size: 1.5rem;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .postcard .post-content{
@@ -62,6 +66,7 @@
     font-size: 1.5rem;
     margin: 0.5rem;
     padding: 0.rem;
+    cursor: pointer;
 }
 
 
@@ -75,12 +80,14 @@
     font-size: 1.5rem;
     margin-right: 0.1rem;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .postcard .post-action-buttons .post-card-bookmark-button {
     font-size: 1.5rem;
     margin-right: 1rem;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .comment-modal{
@@ -110,5 +117,11 @@
     border: none;
     background-color: chartreuse;
     border-radius: 5px;
+    cursor: pointer;
 
+}
+
+.comment-modal .comment-buttons .cancel-comment-btn {
+    background-color: lightgray;
+    border: 1px solid black;
 }

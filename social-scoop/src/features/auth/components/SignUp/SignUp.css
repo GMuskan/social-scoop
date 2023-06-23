@@ -74,6 +74,7 @@
 
 .signup-password i {
     font-size: 1.5rem;
+    cursor: pointer;
     
 }
 
@@ -96,6 +97,7 @@
 
 .signup-confirmPassword i {
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .pwd-not-matching{
@@ -108,7 +110,8 @@
     width: 10rem;
     background-color: chartreuse;
     font-size: 1.2rem;
-    border: none
+    border: none;
+    cursor: pointer;
 }
 .login-section {
     margin: 0.5rem;

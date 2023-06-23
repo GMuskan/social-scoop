@@ -11,8 +11,9 @@ export const SortBar = () => {
             <p>{feedState?.activeSort} Posts</p>
 
             <i className="fa fa-sliders" aria-hidden="true" onClick={() => setSortModal((prev) => !prev)}></i>
-
+            
             {sortModal && <SortModal />}
+            
         </div>
     )
 }
