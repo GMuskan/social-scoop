@@ -33,3 +33,17 @@
     height: 50px;
     border-radius: 50%;
 }
+
+@media(min-width: 520px){
+    .searchModalWrapper{
+        width: 25vw;
+        left: 25.8rem
+    }
+}
+
+@media(min-width: 768px) {
+    .searchModalWrapper {
+        width: 25vw;
+        left: 43.8rem
+    }
+}

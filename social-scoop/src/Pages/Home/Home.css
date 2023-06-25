@@ -1,6 +1,12 @@
+.home-page-container{
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+}
 .home-page .home-page-header{
     display: flex;
     justify-content: space-around;
+    max-width: 500px;
 }
 .suggestion-card{
     margin-bottom: 5rem;
@@ -10,4 +16,44 @@
     font-size: 2rem;
     position: relative;
     top: 1.5rem;
+}
+
+@media(min-width: 520px){
+    .home-page-container{
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .home-page{
+        margin-left: 14rem;
+        margin-bottom: 1rem;
+        margin-right: 5rem;
+    }
+
+    .suggestion-card{
+        margin-left: 14rem;
+        width: 350px
+    }
+}
+
+@media(min-width: 768px) {
+    .home-page-container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home-page {
+        margin-left: 30rem;
+        margin-bottom: 1rem;
+        margin-right: 5rem;
+    }
+
+    .suggestion-card {
+        position: fixed;
+        left: 50rem;
+        width: 400px;
+        right: 1rem;
+    }
 }

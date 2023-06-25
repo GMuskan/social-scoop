@@ -17,10 +17,11 @@ export const SearchModal = ({ searchResult }) => {
                             feedDispatch({ type: "SET_SEARCH_MODAL", payload: false })
 
                         }}>
-                            <img src={user?.profileAvatar} alt="user-iamge" />
+                            <img src={user?.profileAvatar} alt="user-pic" />
                             <div className="search-user-details"><span>{user?.fullName}</span><span>@{user?.username}</span></div>
                         </div>
-                    )) : <div>No user found</div>}
+                    )) : <div style={{position: "relative", top: "1rem", color: "red"}}>No user found</div>
+                }
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 .user-following li{
     list-style-type: none;
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
     margin: 1rem;
     justify-content: space-between;
@@ -30,14 +30,12 @@
     border-radius: 5px;
 }
 
-
-
 .user-followers li{
     list-style-type: none;
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
     margin: 1rem;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .user-followers .followers-user-tag{
@@ -63,4 +61,39 @@
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
+}
+
+@media(min-width: 520px) {
+    .user-following{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .following-header{
+        position: relative;
+        margin: auto;
+    }
+
+    .following-container {
+        position: relative;
+        margin: auto;
+        width: 300px;
+    }
+
+    .user-followers {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .followers-header {
+        position: relative;
+        margin: auto;
+    }
+
+    .followers-container {
+        position: relative;
+        margin: auto;
+        width: 300px;
+    }
+
 }

@@ -24,48 +24,54 @@ export const Home = () => {
     const sortedPosts = sortByDate(timelinePosts, activeSort)
 
     return (
-        <div className="home-page-container">
-            <Helmet>
-                <title>
-                    Home | Social-Scoop
-                </title>
-            </Helmet>
-            <NavBar />
-            <div className="home-page">
-                <div className="home-page-header">
-                    <div className="home-page-heading">
-                        <h1>Home</h1>
+        <>
+            {/* <NavBar /> */}
+
+            <div className="home-page-container">
+                <Helmet>
+                    <title>
+                        Home | Social-Scoop
+                    </title>
+                </Helmet>
+                <NavBar />
+                <div className="home-page">
+                    <div className="home-page-header">
+                        <div className="home-page-heading">
+                            <h1>Home</h1>
+                        </div>
+                        <div className="home-page-search-bar">
+                            <SearchBar search={feedState?.search} users={users} />
+                            {/* <i class="fa fa-search" aria-hidden="true" onClick={() => navigate("/search-users")}></i> */}
+                        </div>
                     </div>
-                    <div className="home-page-search-bar">
-                        <SearchBar search={feedState?.search} users={users} />
-                        {/* <i class="fa fa-search" aria-hidden="true" onClick={() => navigate("/search-users")}></i> */}
-                    </div>
+                    <NewPost loggedInUser={loggedInUser} token={token} />
+                    <SortBar />
+                    {isLoading
+                        ? <p>Loading...</p>
+                        : sortedPosts?.length
+                            ? sortedPosts.map(feed => (
+                                <PostCard
+                                    post={feed}
+                                    key={feed?._id}
+                                    token={token}
+                                    loggedInUser={loggedInUser}
+                                    editPostModal={editPostModal}
+                                    users={users}
+                                    commentModal={commentModal}
+                                    activePost={activePost}
+
+                                />
+                            ))
+                            : <div>No Posts</div>
+                    }
+                    {/* <div className="suggestion-card">
+                        <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
+                    </div> */}
                 </div>
-                <NewPost loggedInUser={loggedInUser} token={token} />
-                <SortBar />
-                {isLoading
-                    ? <p>Loading...</p>
-                    : sortedPosts?.length
-                        ? sortedPosts.map(feed => (
-                            <PostCard
-                                post={feed}
-                                key={feed?._id}
-                                token={token}
-                                loggedInUser={loggedInUser}
-                                editPostModal={editPostModal}
-                                users={users}
-                                commentModal={commentModal}
-                                activePost={activePost}
-
-                            />
-                        ))
-                        : <div>No Posts</div>
-                }
+                <div className="suggestion-card">
+                    <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
+                </div>
             </div>
-
-            <div className="suggestion-card">
-                <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
-            </div>
-        </div>
+        </>
     )
 }

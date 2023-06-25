@@ -28,31 +28,34 @@ export const Bookmark = () => {
             <NavBar />
 
             <div className="bookmark-container">
-                <div className="bookmark-header">
-                    <div className="bookmark-header-name">
-                        <p>Bookmarks</p>
+                <div className="bookmark-page">
+                    <div className="bookmark-header">
+                        <div className="bookmark-header-name">
+                            <p>Bookmarks</p>
+                        </div>
+                        {/* <div className="bookmark-search">
+                            <SearchBar search={feedState?.search} users={users} />
+                        </div> */}
                     </div>
-                    <div className="bookmark-search">
-                        <SearchBar search={feedState?.search} users={users} />
-                    </div>
-                </div>
 
-                <div>
-                    {isLoading ? (
-                        <p>Loading...</p>
-                    ) : bookmarkedPosts.length ? (
-                        [...bookmarkedPosts]
-                            .reverse()
-                            .map((bookmarkedPost) => (
-                                <PostCard post={bookmarkedPost} key={bookmarkedPost._id} token={token} users={users} loggedInUser={loggedInUser} />
-                            ))
-                    ) : (
-                        <div>No bookmarks</div>
-                    )}
+                    <div>
+                        {isLoading ? (
+                            <p>Loading...</p>
+                        ) : bookmarkedPosts.length ? (
+                            [...bookmarkedPosts]
+                                .reverse()
+                                .map((bookmarkedPost) => (
+                                    <PostCard post={bookmarkedPost} key={bookmarkedPost._id} token={token} users={users} loggedInUser={loggedInUser} />
+                                ))
+                        ) : (
+                            <div>No bookmarks</div>
+                        )}
+                    </div>
                 </div>
-                <div>
+                <div className="bookmark-suggestion-card">
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
                 </div>
+
             </div>
         </div>
     );

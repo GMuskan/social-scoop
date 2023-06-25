@@ -76,3 +76,35 @@
     background-color: chartreuse;
     cursor: pointer;
 }
+
+@media(min-width: 520px) {
+    .editProfileModalWrapper {
+        background: rgb(235, 231, 231);
+        width: 43vw;
+        position: fixed;
+        height: 50vh;
+        margin: auto;
+        top: 10rem;
+        left: 15rem;
+        z-index: 8888;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .editProfileModalWrapper {
+        background: rgb(235, 231, 231);
+        width: 24vw;
+        position: fixed;
+        height: 50vh;
+        margin: auto;
+        top: 10rem;
+        left: 32rem;
+        z-index: 8888;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+}

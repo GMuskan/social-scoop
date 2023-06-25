@@ -31,39 +31,41 @@ export const UserProfile = () => {
             <NavBar />
 
             <div className="profile-container">
-                <div className="profile-header">
-                    <div>
-                        <p className="profile-name">
-                            {activeUser?.fullName}
-                        </p>
-                        <p>{activeUserPosts?.length} Posts</p>
+                <div className="profile-page">
+                    <div className="profile-header">
+                        <div>
+                            <p className="profile-name">
+                                {activeUser?.fullName}
+                            </p>
+                            <p>{activeUserPosts?.length} Posts</p>
+                        </div>
+                        {/* <SearchBar search={feedState?.search} users={users} /> */}
                     </div>
-                    {/* <SearchBar search={feedState?.search} users={users} /> */}
+                    <UserProfileDetails activeUser={activeUser} loggedInUser={loggedInUser} />
+                    <div>
+                        {isLoading ? (
+                            <p>Loading...</p>
+                        ) : activeUserPosts.length ? (
+                            [...activeUserPosts]
+                                .reverse()
+                                .map((feed) =>
+                                    <PostCard
+                                        post={feed}
+                                        key={feed._id}
+                                        token={token}
+                                        loggedInUser={activeUser?.username === loggedInUser?.username ? activeUser : loggedInUser}
+                                        editPostModal={editPostModal}
+                                        users={users}
+                                        commentModal={commentModal}
+                                        activePost={activePost}
+                                    />
+                                )
+                        ) : (
+                            <div>No Posts</div>
+                        )}
+                    </div>
                 </div>
-                <UserProfileDetails activeUser={activeUser} loggedInUser={loggedInUser} />
-                <div>
-                    {isLoading ? (
-                        <p>Loading...</p>
-                    ) : activeUserPosts.length ? (
-                        [...activeUserPosts]
-                            .reverse()
-                            .map((feed) =>
-                                <PostCard
-                                    post={feed}
-                                    key={feed._id}
-                                    token={token}
-                                    loggedInUser={activeUser?.username === loggedInUser?.username ? activeUser : loggedInUser}
-                                    editPostModal={editPostModal}
-                                    users={users}
-                                    commentModal={commentModal}
-                                    activePost={activePost}
-                                />
-                            )
-                    ) : (
-                        <div>No Posts</div>
-                    )}
-                </div>
-                <div>
+                <div className="profile-suggestion-card">
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
                 </div>
             </div>

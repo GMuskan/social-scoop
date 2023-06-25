@@ -125,3 +125,29 @@
     background-color: lightgray;
     border: 1px solid black;
 }
+
+@media(min-width: 520px){
+    .postcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        min-width: 335px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .postcard .postcard-header .postcard-header-title {
+        text-align: left;
+        line-height: 15px;
+        cursor: pointer;
+    }
+}
+
+@media(min-width: 768px) {
+    .postcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        min-width: 450px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}

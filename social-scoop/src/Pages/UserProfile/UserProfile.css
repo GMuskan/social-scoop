@@ -21,3 +21,43 @@
     font-size: 1rem;
     font-weight: bold;;
 }
+
+@media(min-width: 520px) {
+    .profile-container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .profile-page {
+        margin-left: 14rem;
+        margin-bottom: 1rem;
+        margin-right: 5rem;
+    }
+
+    .profile-suggestion-card {
+        margin-left: 14rem;
+        width: 350px
+    }
+}
+
+@media(min-width: 768px) {
+    .profile-container {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .profile-page {
+        margin-left: 30rem;
+        margin-bottom: 1rem;
+        margin-right: 5rem;
+    }
+
+    .profile-suggestion-card {
+        position: fixed;
+        left: 50rem;
+        width: 400px;
+        right: 1rem;
+    }
+}

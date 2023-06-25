@@ -25,37 +25,39 @@ export const Explore = () => {
             <NavBar />
 
             <div className="explore-container">
-                <div className="explore-header">
-                    <div className="explore-header-name">
-                        <p>Explore</p>
+                <div className="explore-page">
+                    <div className="explore-header">
+                        <div className="explore-header-name">
+                            <p>Explore</p>
+                        </div>
+                        <div className="explore-search">
+                            <SearchBar search={feedState?.search} users={users} />
+                        </div>
                     </div>
-                    <div className="explore-search">
-                        <SearchBar search={feedState?.search} users={users} />
-                    </div>
-                </div>
 
-                <div>
-                    {isLoading ? (
-                        <p>Loading...</p>
-                    ) : userFeed.length ? (
-                        [...userFeed]
-                            .reverse()
-                            .map((feed) => (feed?.username !== loggedInUser?.username &&
-                                <PostCard
-                                    post={feed}
-                                    key={feed._id}
-                                    token={token}
-                                    loggedInUser={loggedInUser}
-                                    editPostModal={editPostModal}
-                                    users={users}
-                                    commentModal={commentModal}
-                                    activePost={activePost} />
-                            ))
-                    ) : (
-                        <div>No bookmarks</div>
-                    )}
+                    <div>
+                        {isLoading ? (
+                            <p>Loading...</p>
+                        ) : userFeed.length ? (
+                            [...userFeed]
+                                .reverse()
+                                .map((feed) => (feed?.username !== loggedInUser?.username &&
+                                    <PostCard
+                                        post={feed}
+                                        key={feed._id}
+                                        token={token}
+                                        loggedInUser={loggedInUser}
+                                        editPostModal={editPostModal}
+                                        users={users}
+                                        commentModal={commentModal}
+                                        activePost={activePost} />
+                                ))
+                        ) : (
+                            <div>No bookmarks</div>
+                        )}
+                    </div>
                 </div>
-                <div>
+                <div className="explore-suggestion-card">
                     <SuggestedUsers users={users} loggedInUser={loggedInUser} token={token} />
                 </div>
             </div>

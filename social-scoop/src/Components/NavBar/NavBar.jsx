@@ -14,10 +14,6 @@ export const NavBar = () => {
     return (
         <aside>
             <div className="action-icons">
-                {/* <div>
-                    <i className="fa fa-cutlery" aria-hidden="true" onClick={() => navigate("/home")}></i>
-
-                </div> */}
                 <div className="action-icon">
                     <i className="fa fa-home" aria-hidden="true" onClick={() => navigate("/home")}></i>
 
@@ -31,7 +27,10 @@ export const NavBar = () => {
 
                 </div>
                 <div className="action-icon">
-                    <i className="fa fa-sign-out" aria-hidden="true" onClick={() => logoutClickHandler(navigate, authState, authDispatch)} />
+                    <i className="fa fa-sign-out" aria-hidden="true" onClick={() => {
+                        console.log("clicked")
+                        logoutClickHandler(navigate, authState, authDispatch)
+                    }} />
 
                 </div>
 

@@ -32,3 +32,10 @@
     margin-top: 0.1rem;
     cursor: pointer;
 }
+
+@media(min-width: 768px) {
+    .suggested-user-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

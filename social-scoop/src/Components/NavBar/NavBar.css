@@ -2,13 +2,15 @@ aside{
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
-    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     position: fixed;
     margin:0;
     bottom: 0;
     width: 100%;
     overflow: hidden;   
     background-color: lightgray;
+    max-width: 500px;
 }
 
 aside .action-icons{
@@ -33,4 +35,42 @@ aside .user-icon img{
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media(min-width: 520px) {
+    aside{
+        width: fit-content;
+        position: fixed;
+        left: 0;
+        top: 0px;
+        background-color: lightgray;
+    }
+    aside .action-icons {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+        padding: 1rem;
+        margin-left: 2rem;
+        justify-content: flex-start;
+    }
+    aside .action-icons .action-icon {
+        margin-bottom: 2rem;
+        cursor: pointer;
+    }
+    aside .user-icon {
+        position: relative;
+        bottom: -40rem;
+        left: 6rem;
+    }
+    aside .user-icon img {
+        position: relative;
+        left: -11.5rem;
+        
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
 }

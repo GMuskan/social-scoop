@@ -1,10 +1,10 @@
 .edit-post-modal-wrapper{
-    background: lightgrey;
-    width: 80vw;
+    background-color: lightgray;
+    width: fit-content;
     position: fixed;
     height: auto;
-    top: 15rem;
-    left: 1.5rem;
+    top: 20rem;
+    left: 3.8rem;
     z-index: 8888;
     border: none;
     border-radius: 5px;
@@ -75,4 +75,36 @@
     font-size: 2rem;
     margin: 0.5rem;
     cursor: pointer;
+}
+
+@media(min-width: 520px) {
+    .edit-post-modal-wrapper {
+        background: rgb(235, 231, 231);
+        width: 50vw;
+        position: fixed;
+        height: 50vh;
+        margin: auto;
+        top: 10rem;
+        left: 15rem;
+        z-index: 8888;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+}
+
+@media(min-width: 768px){
+    .edit-post-modal-wrapper {
+        background: rgb(235, 231, 231);
+        width: 28vw;
+        position: fixed;
+        height: 50vh;
+        margin: auto;
+        top: 10rem;
+        left:29.5rem;
+        z-index: 8888;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+    }
 }
