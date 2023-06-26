@@ -77,6 +77,13 @@
     cursor: pointer;
 }
 
+.editProfileModal .edit-profile-image .select-avatar img{
+    width: 20px;
+    height: 20px;
+    /* margin-left: 1rem;
+    margin-top: 1rem; */
+}
+
 @media(min-width: 520px) {
     .editProfileModalWrapper {
         background: rgb(235, 231, 231);

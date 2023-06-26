@@ -28,7 +28,6 @@ export const NavBar = () => {
                 </div>
                 <div className="action-icon">
                     <i className="fa fa-sign-out" aria-hidden="true" onClick={() => {
-                        console.log("clicked")
                         logoutClickHandler(navigate, authState, authDispatch)
                     }} />
 

@@ -3,6 +3,7 @@ import { authContext } from "../../Context/AuthContext"
 import { editUserProfile } from "../../services/userService";
 import { feedContext } from "../../Context/FeedContext";
 import "./EditProfileModal.css"
+import { AvatarModal } from "../AvatarModal/AvatarModal";
 
 export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
     const { authState, authDispatch } = useContext(authContext);
@@ -11,6 +12,8 @@ export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
     const { users } = feedState
 
     const [profileDetails, setProfileDetails] = useState(loggedInUser)
+
+    const [avatarModal, setAvatarModal] = useState(false);
 
     return (
         <div className="editProfileModalWrapper">
@@ -32,6 +35,10 @@ export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
                         <input type="file" onChange={(e) => setProfileDetails({ ...profileDetails, profileAvatar: URL.createObjectURL(e.target.files[0]) })} hidden />
                         <i className="fa fa-camera" aria-hidden="true" />
                     </label>
+                    <label className="select-avatar">
+                        <button onClick={() => setAvatarModal(true)}>Select Avatar</button>
+                    </label>
+                    {avatarModal && <AvatarModal setAvatarModal={setAvatarModal} profileDetails={profileDetails} setProfileDetails={setProfileDetails} />}
                 </div>
                 <div className="edit-profile-details">
                     <div className="edit-profile-details-name">

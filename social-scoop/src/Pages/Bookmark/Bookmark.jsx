@@ -3,7 +3,7 @@ import { authContext } from "../../Context/AuthContext";
 import { feedContext } from "../../Context/FeedContext";
 import { Helmet } from "react-helmet";
 import { NavBar } from "../../Components/NavBar/NavBar";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
+// import { SearchBar } from "../../Components/SearchBar/SearchBar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import "./Bookmark.css"
