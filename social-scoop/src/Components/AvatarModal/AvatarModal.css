@@ -43,7 +43,7 @@
 @media(min-width: 520px) {
     .avatar-modal-wrapper {
         background: rgb(235, 231, 231);
-        width: 43vw;
+        width: 50vw;
         position: fixed;
         height: 50vh;
         margin: auto;
