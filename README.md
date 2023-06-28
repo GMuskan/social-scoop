@@ -1,4 +1,4 @@
-![alt text](https://github.com/GMuskan/social-scoop/blob/main/social-scoop/public/favicon.ico)
+![alt text](https://www.solutionsforcare.co.uk/wp-content/uploads/2019/03/icon-food-new.png)
 
 # Social Scoop
 Socila Media App for Foodies
