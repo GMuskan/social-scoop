@@ -1,5 +1,5 @@
 .edit-post-modal-wrapper{
-    background-color: lightgray;
+    background-color: rgb(235, 231, 231);
     width: fit-content;
     position: fixed;
     height: auto;
@@ -82,7 +82,7 @@
         background: rgb(235, 231, 231);
         width: 50vw;
         position: fixed;
-        height: 50vh;
+        height: 60vh;
         margin: auto;
         top: 10rem;
         left: 15rem;
@@ -98,7 +98,7 @@
         background: rgb(235, 231, 231);
         width: 28vw;
         position: fixed;
-        height: 50vh;
+        height: 60vh;
         margin: auto;
         top: 10rem;
         left:29.5rem;
