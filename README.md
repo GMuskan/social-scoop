@@ -1,4 +1,4 @@
-![alt text](social-scoop\public\favicon.ico)
+![alt text](https://github.com/GMuskan/social-scoop/blob/main/social-scoop/public/favicon.ico)
 
 # Social Scoop
 Socila Media App for Foodies
