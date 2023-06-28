@@ -1,4 +1,4 @@
-![alt text](%PUBLIC_URL%/favicon.ico)
+![alt text](social-scoop\public\favicon.ico)
 
 # Social Scoop
 Socila Media App for Foodies
