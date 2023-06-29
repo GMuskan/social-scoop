@@ -16,8 +16,8 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "aditya_jadhav",
-    fullName: "Aditya Jadhav",
+    username: "anshul_jain",
+    fullName: "Anshul Jain",
     postImage: "https://res.cloudinary.com/dwebygldw/image/upload/v1653066367/frittr/vada-pav_g0u58t.webp",
     createdAt: "2022-05-01",
     updatedAt: formatDate(),
@@ -26,8 +26,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
 
         profileAvatar:
           "https://picsum.photos/id/1005/150",
@@ -75,8 +75,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: "2022-05-11",
@@ -90,56 +90,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Wow!",
-        fullName: "Aditya Jadhav",
-        username: "aditya_jadhav",
-        profileAvatar:
-          "https://picsum.photos/id/100/150",
-        createdAt: "2022-05-12",
-        updatedAt: formatDate(),
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-  },
-  {
-    _id: uuid(),
-    content:
-      "Went to this hangout place, Bob's in Marathalli yesterday. The ambience is real good and the mocktails are really fresh.",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-
-    username: "muskan09",
-    fullName: "Muskan Gupta",
-    createdAt: "2022-05-11",
-    postImage: "https://res.cloudinary.com/dwebygldw/image/upload/v1652908952/frittr/zwpmppawiyxwthsmikyk.webp",
-    updatedAt: formatDate(),
-    comments: [
-      {
-        _id: uuid(),
-        comment:
-          "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
-        profileAvatar:
-          "https://picsum.photos/id/1005/150",
-        createdAt: "2022-05-11",
-        updatedAt: formatDate(),
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-      {
-        _id: uuid(),
-        comment:
-          "Wow!",
-        fullName: "Aditya Jadhav",
-        username: "aditya_jadhav",
+        fullName: "Anshul Jain",
+        username: "anshul_jain",
         profileAvatar:
           "https://picsum.photos/id/100/150",
         createdAt: "2022-05-12",
@@ -176,16 +128,16 @@ export const posts = [
       ],
       dislikedBy: [],
     },
-    username: "anshaal10",
-    fullName: "Anshaal Khanna",
+    username: "adarshbalika13",
+    fullName: "Adarsh Balika",
     postImage: null,
     comments: [
       {
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: formatDate(),
@@ -224,8 +176,8 @@ export const posts = [
       dislikedBy: [],
     },
     postImage: null,
-    username: "anshaal10",
-    fullName: "Anshaal Khanna",
+    username: "adarshbalika13",
+    fullName: "Adarsh Balika",
     createdAt: "2022-05-05",
     updatedAt: formatDate(),
     comments: [
@@ -233,8 +185,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: formatDate(),
@@ -280,8 +232,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: formatDate(),
@@ -327,8 +279,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: formatDate(),
@@ -374,8 +326,8 @@ export const posts = [
         _id: uuid(),
         comment:
           "Nice!",
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
+        fullName: "Adarsh Balika",
+        username: "adarshbalika13",
         profileAvatar:
           "https://picsum.photos/id/1005/150",
         createdAt: formatDate(),

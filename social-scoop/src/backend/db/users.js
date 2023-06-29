@@ -30,11 +30,11 @@ export const users = [
           "https://picsum.photos/id/1009/150"
       },
       {
-        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Anshul Jain", username: "anshul_jain", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
       {
-        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Adarsh Balika", username: "adarshbalika13", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
@@ -57,13 +57,13 @@ export const users = [
           "https://picsum.photos/id/1012/150",
       },
       {
-        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Anshul Jain", username: "anshul_jain", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
     ],
     followers: [
       {
-        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Adarsh Balika", username: "adarshbalika13", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
       {
@@ -75,9 +75,9 @@ export const users = [
   },
   {
     _id: 4,
-    fullName: "Anshaal Khanna",
-    username: "anshaal10",
-    password: "anshaal123",
+    fullName: "Adarsh Balika",
+    username: "adarshbalika13",
+    password: "adarshbalika123",
     bio: "Hey, Anshaal here",
     website: "https://www.nike.com",
     profileAvatar:
@@ -96,7 +96,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: 3, fullName: "Aditya Jadhav", username: "aditya_jadhav", profileAvatar:
+        _id: 3, fullName: "Anshul Jain", username: "anshul_jain", profileAvatar:
           "https://picsum.photos/id/100/150"
       },
     ],
@@ -104,9 +104,9 @@ export const users = [
   },
   {
     _id: 3,
-    fullName: "Aditya Jadhav",
-    username: "aditya_jadhav",
-    password: "jadhav123",
+    fullName: "Anshul Jain",
+    username: "anshul_jain",
+    password: "anshul123",
     bio: "Hello, Jadhav here!",
     website: "https://www.wikipedia.com",
     profileAvatar:
@@ -119,7 +119,7 @@ export const users = [
           "https://picsum.photos/id/1012/150",
       },
       {
-        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Adarsh Balika", username: "adarshbalika13", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
@@ -129,7 +129,7 @@ export const users = [
           "https://picsum.photos/id/1009/150"
       },
       {
-        _id: 4, fullName: "Anshaal Khanna", username: "anshaal10", profileAvatar:
+        _id: 4, fullName: "Adarsh Balika", username: "adarshbalika13", profileAvatar:
           "https://picsum.photos/id/1005/150"
       },
     ],
