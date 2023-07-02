@@ -20,7 +20,7 @@ export const SearchModal = ({ searchResult }) => {
                             <img src={user?.profileAvatar} alt="user-pic" />
                             <div className="search-user-details"><span>{user?.fullName}</span><span>@{user?.username}</span></div>
                         </div>
-                    )) : <div style={{position: "relative", top: "1rem", color: "red"}}>No user found</div>
+                    )) : <div style={{position: "relative", top: "1rem", color: "white"}}>No user found</div>
                 }
             </div>
         </div>

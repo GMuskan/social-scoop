@@ -32,7 +32,7 @@ export const EditProfileModal = ({ setEditProfileModal, loggedInUser }) => {
                         <img src={profileDetails?.profileAvatar} alt="loggedIn User icon" />
                         : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                     <label>
-                        <input type="file" onChange={(e) => setProfileDetails({ ...profileDetails, profileAvatar: URL.createObjectURL(e.target.files[0]) })} hidden />
+                        <input type="file" accept="image/png, image/jpeg" onChange={(e) => setProfileDetails({ ...profileDetails, profileAvatar: URL.createObjectURL(e.target.files[0]) })} hidden />
                         <i className="fa fa-camera" aria-hidden="true" />
                     </label>
                     <label className="select-avatar">

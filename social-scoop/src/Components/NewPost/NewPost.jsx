@@ -29,7 +29,7 @@ export const NewPost = ({ loggedInUser, token, post }) => {
             <div className="add-new-post-btn">
                 <div className="new-post-file-input">
                     <label className="new-post-file-input-label">
-                        <input type="file" onChange={addImageToNewPost} hidden />
+                        <input type="file" accept="image/png, image/jpeg" onChange={addImageToNewPost} hidden />
                         <i className="fa fa-picture-o" aria-hidden="true" />
                     </label>
                 </div>

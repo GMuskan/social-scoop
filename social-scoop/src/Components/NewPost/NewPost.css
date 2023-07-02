@@ -26,7 +26,7 @@
 }
 
 .newPost .userProfile .new-post-input .new-post-text:focus{
-    border: none;
+   outline: none;
 }
 
 .newPost .userProfile .new-post-input .new-post-image img {

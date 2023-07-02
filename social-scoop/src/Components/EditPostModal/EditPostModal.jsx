@@ -43,7 +43,7 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
             <div className="edit-post-footer">
                 <div>
                     <label>
-                        <input type="file" onChange={addNewImageToPost} hidden />
+                            <input type="file" accept="image/png, image/jpeg" onChange={addNewImageToPost} hidden />
                         <i className="fa fa-picture-o" aria-hidden="true" />
                     </label>
                 </div>

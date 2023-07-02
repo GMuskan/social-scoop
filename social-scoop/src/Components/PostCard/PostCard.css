@@ -53,7 +53,11 @@
 
 .postcard .post-action-buttons {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+}
+
+.postcard .post-action-buttons .section-1{
+    display: flex;
 }
 
 .postcard .post-action-buttons .post-card-like-button{
@@ -92,11 +96,36 @@
 
 .comment-modal{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     margin-top: 0.2rem;
     margin-bottom: 1rem;
 }
+.comment-modal .comments-section {
+   text-align: left;
+}
 
+.comment-user-tag {
+    display: flex;
+    cursor: pointer;
+    padding: 0.1rem;
+}
+
+.comment-user-details {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1px;
+    position: relative;
+    top: -1rem;
+}
+.comment-modal .comments-section img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
 .comment-modal .comment-box{
     display: flex;
 }

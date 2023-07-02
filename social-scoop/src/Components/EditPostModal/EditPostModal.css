@@ -35,6 +35,9 @@
     padding: 0.5rem;
     word-wrap: break-word;
 }
+.edit-post-modal .edit-post-header-section .edit-post-header-input input:focus {
+    outline: none;
+}
 
 .edit-post-modal .edit-post-image {
     margin-bottom: 1rem;
