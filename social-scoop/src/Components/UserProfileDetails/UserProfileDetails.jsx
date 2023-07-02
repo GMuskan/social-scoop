@@ -5,7 +5,7 @@ import "./UserProfileDetails.css";
 import { feedContext } from "../../Context/FeedContext";
 
 export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
-    const {setFollowingList, setFollowerList } = useContext(feedContext)
+    const { setFollowingList, setFollowerList } = useContext(feedContext)
     const [editProfile, setEditProfileModal] = useState(false);
 
     const navigate = useNavigate();
@@ -13,10 +13,8 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
         <div>
             <div className="user-profile-container">
                 <div className="profile-details">
-                    {/* {activeUser?.profileAvatar ? */}
-                    <img src={activeUser?.profileAvatar} alt="user-pic" />
-                    {/* : <img src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="default=user-icon" />} */}
                     <div className="details">
+                        <img src={activeUser?.profileAvatar} alt="user-pic" />
                         <div className="name-details">
                             <h3>{activeUser?.fullName}</h3>
                             <p>{activeUser?.username}</p>
@@ -29,7 +27,6 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
                             <p className="following-count" onClick={() => {
                                 setFollowerList(false)
                                 setFollowingList(true)
-                                // setFollowModal(true)
                                 navigate(`/profile/${activeUser?.username}/following`)
                             }}>
                                 {activeUser?.following?.length} Following
@@ -37,7 +34,6 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
                             <p className="followers-count" onClick={() => {
                                 setFollowingList(false)
                                 setFollowerList(true)
-                                // setFollowModal(true)
                                 navigate(`/profile/${activeUser?.username}/followers`)
                             }}>
                                 {activeUser?.followers?.length} Followers
@@ -45,12 +41,14 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
                         </div>
                     </div>
                     <div>
-                        {activeUser?.username === loggedInUser?.username && <div>
-                            <button className="edit-profile-btn" onClick={() => {
-                                setEditProfileModal(true)
-                            }}>Edit Profile</button>
-                            {editProfile && <EditProfileModal setEditProfileModal={setEditProfileModal} loggedInUser={loggedInUser} />}
-                        </div>}
+                        {activeUser?.username === loggedInUser?.username
+                            && <div>
+                                <button className="edit-profile-btn" onClick={() => {
+                                    setEditProfileModal(true)
+                                }}>Edit Profile</button>
+                                {editProfile && <EditProfileModal setEditProfileModal={setEditProfileModal} loggedInUser={loggedInUser} />}
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
