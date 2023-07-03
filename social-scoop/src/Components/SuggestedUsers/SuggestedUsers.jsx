@@ -26,7 +26,7 @@ export const SuggestedUsers = ({ users, loggedInUser, token }) => {
                             <div onClick={() => navigate(`/profile/${user?.username}`)}>
                                 <img src={user?.profileAvatar} alt="user-pic" />
                                 <div>{user?.fullName}</div>
-                                <div>@{user?.username}</div>
+                                <div className="suggested-username">@{user?.username}</div>
                             </div>
                             <button className="follow-btn" onClick={() => followUser(user?._id, token, authDispatch, feedState, feedDispatch)}>Follow</button>
                         </div>

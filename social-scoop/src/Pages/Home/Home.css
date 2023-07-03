@@ -1,9 +1,11 @@
 .home-page-container{
     max-width: 500px;
+    width: 100%;
     position: relative;
     margin: auto;
 }
 .home-page .home-page-header{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     max-width: 500px;
@@ -37,7 +39,7 @@
     }
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
     .home-page-container {
         max-width: 100%;
         display: grid;

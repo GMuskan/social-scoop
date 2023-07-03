@@ -23,6 +23,10 @@
     cursor: pointer;
 }
 
+.suggested-username{
+    font-size: 13px;
+}
+
 .suggested-user-card .follow-btn{
     width: 5rem;
     background-color: chartreuse;
