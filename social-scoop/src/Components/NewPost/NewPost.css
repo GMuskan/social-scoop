@@ -57,8 +57,20 @@
 .newPost .add-new-post-btn button{
     /* padding: 0.5rem; */
     width: 5rem;
-    background-color: chartreuse;
+    background-color: #f1c40f;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+@media(min-width: 768px){
+    .newPost{
+        border-radius: 5px;
+        border: 1px solid rgb(163, 160, 160);
+        width: 89%;
+        max-width: 500px;
+        position: relative;
+            left: 0rem;
+            margin: 0.5rem;
+    }
 }

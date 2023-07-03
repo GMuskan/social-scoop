@@ -24,7 +24,7 @@
 }
 
 .user-following .following-user-unfollow-btn button{
-    background-color: chartreuse;
+    background-color: #f1c40f;
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
@@ -57,7 +57,7 @@
 }
 
 .user-followers .followers-user-follow-btn button{
-    background-color: chartreuse;
+    background-color: #f1c40f;
     padding: 0.5rem;
     border: none;
     border-radius: 5px;

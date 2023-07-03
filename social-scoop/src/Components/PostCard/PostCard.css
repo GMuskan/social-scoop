@@ -3,6 +3,9 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgb(163, 160, 160);
+    margin: 0.5rem;
+    border-radius: 5px;
     /* height: auto; */
 }
 
@@ -18,8 +21,8 @@
 } */
 
 .postcard .postcard-header img{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -44,7 +47,7 @@
 .postcard-header-button-section .follow-unfollow-button{
     padding: 0.5rem;
     border: none;
-    background-color: chartreuse;
+    background-color: #f1c40f;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -67,6 +70,7 @@
 .postcard .post-image img{
     max-width: 300px;
     height: 300px;
+    box-sizing: border-box;
 }
 
 .postcard .post-action-buttons {
@@ -117,6 +121,7 @@
     flex-direction: column;
     margin-top: 0.2rem;
     margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 .comment-modal .comments-section {
    text-align: left;
@@ -155,14 +160,14 @@
     /* margin-right: 1rem; */
 }
 .comment-modal .comment-box input {
-    padding: 0.8rem;
+    /* padding: 0.8rem; */
 }
 
 .comment-modal .comment-buttons button{
     margin: 0.5rem;
     padding: 0.5rem;
     border: none;
-    background-color: chartreuse;
+    background-color: #f1c40f;
     border-radius: 5px;
     cursor: pointer;
 

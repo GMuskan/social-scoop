@@ -3,6 +3,9 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 5rem;
+    width: 100%;
+    max-width: 500px;
+    font-size: 14px;
 }
 
 .profile-container .profile-header{

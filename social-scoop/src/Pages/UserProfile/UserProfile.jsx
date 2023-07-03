@@ -29,7 +29,6 @@ export const UserProfile = () => {
                 </title>
             </Helmet>
             <NavBar />
-
             <div className="profile-container">
                 <div className="profile-page">
                     <div className="profile-header">

@@ -7,3 +7,7 @@
     padding: 0.5rem;
     text-align: left;
 }
+
+.search-bar input:focus {
+    outline: none;
+}

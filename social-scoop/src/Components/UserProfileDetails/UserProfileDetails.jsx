@@ -21,7 +21,7 @@ export const UserProfileDetails = ({ activeUser, loggedInUser }) => {
                         </div>
                         <div className="bio-details">
                             <p>{activeUser?.bio}</p>
-                            <NavLink to="https://muskanportfolio.netlify.app/">{activeUser?.website}</NavLink>
+                            <NavLink className="bio-link" to="https://muskanportfolio.netlify.app/" target="_blank" rel="noreferrer">{activeUser?.website}</NavLink>
                         </div>
                         <div className="followers-details">
                             <p className="following-count" onClick={() => {

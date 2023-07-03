@@ -2,11 +2,15 @@
     display: flex;
     border: 1px solid black;
     justify-content: space-between;
+    border-radius: 5px;
+    margin: 0.5rem;
 }
 
 .profile-details{
     display: flex;
     padding: 0.5rem;
+    width:100%;
+    justify-content: space-between;
 }
 
 .user-profile-container .profile-details img{
@@ -42,7 +46,12 @@
 .edit-profile-btn{
     padding: 0.5rem;
     border-radius: 5px;
-    background-color: chartreuse;
+    background-color: #f1c40f;
     width: 6rem;
     cursor: pointer;
+    border: none;
+}
+
+.bio-link{
+    color:#00a6fb;
 }

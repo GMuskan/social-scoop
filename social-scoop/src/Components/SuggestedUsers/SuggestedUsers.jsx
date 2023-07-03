@@ -14,8 +14,8 @@ export const SuggestedUsers = ({ users, loggedInUser, token }) => {
         <div className="suggested-user">
             {suggestedUsersList?.length
                 ? <div>
-                    <h1>Suggestions for you
-                    </h1>
+                    <h2>Suggested Users
+                    </h2>
                 </div>
                 : <div></div>
             }

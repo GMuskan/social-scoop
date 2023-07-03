@@ -14,7 +14,7 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
     return (
         <div className="edit-post-modal-wrapper">
         <div className="edit-post-modal">
-            <div className="edit-post-header">Edit Post</div>
+            {/* <div className="edit-post-header">Edit Post</div> */}
             <div className="edit-post-header-section">
                 <div className="edit-post-header-image">
                     {loggedInUser?.profileAvatar ?
@@ -22,9 +22,8 @@ export const EditPostModal = ({ post, loggedInUser, token }) => {
                         : <img src={users.find(user => user.username === loggedInUser.username).profileAvatar} alt="default=user-icon" />}
                 </div>
                 <div className="edit-post-header-input">
-                    <input
-                        type="textbox"
-                        contentEditable="true"
+                    <textarea
+                        // contentEditable="true"
                         value={postContent?.newPostContent}
                         onChange={(e) => {
                             setPostContent((prev) => ({ ...prev, newPostContent: e.target.value }))

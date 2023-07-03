@@ -28,7 +28,7 @@ export const Explore = () => {
                 <div className="explore-page">
                     <div className="explore-header">
                         <div className="explore-header-name">
-                            <p>Explore</p>
+                            <h1>Explore</h1>
                         </div>
                         <div className="explore-search">
                             <SearchBar search={feedState?.search} users={users} />

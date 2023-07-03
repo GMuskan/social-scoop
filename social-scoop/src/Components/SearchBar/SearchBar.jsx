@@ -5,7 +5,7 @@ import "./SearchBar.css"
 
 export const SearchBar = ({ search, users }) => {
     const { feedState, feedDispatch } = useContext(feedContext);
-    const searchResult = search !== "" && users.filter(user => user?.username?.trim().toLowerCase()?.includes(search))
+    const searchResult = search !== "" && users.filter(user => user?.username?.trim()?.includes(search?.toLowerCase()))
     return (
         <div className="search-bar">
             <input

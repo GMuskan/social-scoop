@@ -12,12 +12,25 @@
 .sortbar p{
     margin-top: 0;
     margin-bottom:0;
-    margin-left:1rem;
+    margin-left:0.5rem;
     font-weight: bold;
+    /* font-size: 14px; */
 }
 
 .sortbar i{
     margin-right: 1rem;
     margin-top: 0.2rem;
     cursor: pointer;
+}
+
+@media(min-width: 768px) {
+    .sortbar {
+        border-radius: 5px;
+        border: 1px solid rgb(163, 160, 160);
+        width: 95%;
+        max-width: 500px;
+        position: relative;
+        left: 0.5rem;
+
+    }
 }

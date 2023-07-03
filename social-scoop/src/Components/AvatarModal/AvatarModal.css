@@ -1,10 +1,13 @@
 .avatar-modal-wrapper {
-    background: rgb(235, 231, 231);
-    width: 80vw;
+    background: white;
+    width: 100%;
+    max-width: 400px;
     position: fixed;
-    height: auto;
-    top: 8rem;
-    left: 1.5rem;
+    height: 25rem;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
     z-index: 8888;
     border: none;
     border-radius: 5px;
@@ -58,13 +61,26 @@
 
 @media(min-width: 768px) {
     .avatar-modal-wrapper {
-        background: rgb(235, 231, 231);
+        /* background: white;
         width: 24vw;
         position: fixed;
         height: 50vh;
         margin: auto;
         top: 10rem;
         left: 32rem;
+        z-index: 8888;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem; */
+        background: white;
+        width: 100%;
+        max-width: 400px;
+        position: fixed;
+        height: 25rem;
+        top: 8rem;
+        left: -7rem;
+        right: 0;
+        /* bottom: 0; */
         z-index: 8888;
         border: none;
         border-radius: 5px;
