@@ -37,8 +37,8 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
                 <div className="postcard-header-title" onClick={() => {
                     navigate(`/profile/${post?.username}`)
                 }}>
-                    <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
-                    <p>@{post?.username}</p>
+                    <p>{post?.username} . <span>{getPostDate(post?.createdAt)}</span></p>
+                    {/* <p>@{post?.username}</p> */}
                 </div>
                 <div className="postcard-header-button-section">
                     {post?.username === loggedInUser?.username
