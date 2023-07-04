@@ -47,9 +47,10 @@
 .postcard-header-button-section .follow-unfollow-button{
     padding: 0.5rem;
     border: none;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     border-radius: 5px;
     cursor: pointer;
+    color: white
 }
 
 /* .postcard-header-button-section {
@@ -167,7 +168,7 @@
     margin: 0.5rem;
     padding: 0.5rem;
     border: none;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     border-radius: 5px;
     cursor: pointer;
 

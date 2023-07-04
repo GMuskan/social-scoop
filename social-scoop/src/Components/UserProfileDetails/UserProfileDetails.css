@@ -46,10 +46,11 @@
 .edit-profile-btn{
     padding: 0.5rem;
     border-radius: 5px;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     width: 6rem;
     cursor: pointer;
     border: none;
+    color: white;
 }
 
 .bio-link{

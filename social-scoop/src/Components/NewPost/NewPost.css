@@ -57,10 +57,11 @@
 .newPost .add-new-post-btn button{
     /* padding: 0.5rem; */
     width: 5rem;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 }
 
 @media(min-width: 768px){

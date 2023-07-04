@@ -1,16 +1,17 @@
 .searchModalWrapper {
-    background: black;
+    background: rgb(208, 232, 242);
     width: 50vw;
     position: fixed;
     height: auto;
-    top: 4rem;
-    left: 9.5rem;
+    top: 4.5rem;
+    left: 10rem;
     z-index: 8888;
 }
 
 .searchModalWrapper .searchModal {
     position: relative;
     top: -1rem;
+    
 }
 
 .searchModalWrapper .searchModal .search-user-tag {
@@ -19,12 +20,13 @@
     top: 1rem;
     cursor: pointer;
     padding:0.5rem;
+    border: 1px solid rgb(163, 160, 160);
 }
 
 .searchModalWrapper .searchModal .search-user-tag .search-user-details {
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
     padding: 0.5rem;
     text-align: left;
 }

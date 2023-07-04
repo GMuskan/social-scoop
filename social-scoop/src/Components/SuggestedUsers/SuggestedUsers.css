@@ -32,12 +32,13 @@
 
 .suggested-user-card .follow-btn{
     width: 5rem;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     border: none;
     border-radius: 5px;
     padding: 0.5rem;
     margin-top: 0.1rem;
     cursor: pointer;
+    color: white;
 }
 
 @media(min-width: 768px) {

@@ -1,6 +1,7 @@
 .search-bar{
     position: relative;
     top: 1.7rem;
+    margin-right: -0.5rem;
 }
 
 .search-bar input{

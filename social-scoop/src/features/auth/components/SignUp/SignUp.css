@@ -1,17 +1,49 @@
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.signup-page .signup-image {
+    position: relative;
+    /* margin: auto; */
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.signup-page .signup-image img {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+}
 .signup-container {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 5rem;
-    margin: auto;
+    top: -4rem;
+    margin: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     max-width: 300px;
+    border: rgb(163, 160, 160);
+    border-radius: 5px;
 }
 
 .signup-form {
     display: flex;
     flex-direction: column;
+}
+
+.signup-form .signup {
+    margin: 0
 }
 
 .signup-form .app-name-section {
@@ -22,9 +54,9 @@
     justify-content: center;
 }
 
-.signup-form .about-app-section {
+/* .signup-form .about-app-section {
     font-size: 1.3rem;
-}
+} */
 
 .signup-credentials form {
     display: flex;
@@ -35,24 +67,22 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 0.5rem;
+    margin: 0.6rem;
 }
 
 .signup-fullName input {
     padding: 0.5rem;
-    border: 2px solid black;
 }
 
 .signup-username {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 0.5rem;
+    margin: 0.6rem;
 }
 
 .signup-username input {
     padding: 0.5rem;
-    border: 2px solid black;
 }
 
 .signup-password {
@@ -60,22 +90,23 @@
     flex-direction: column;
     text-align: left;
     margin: 0.6rem;
+    /* border: 1px solid; */
 }
 
 .signup-password input {
     width: 14rem;
     padding: 0.5rem;
-    border: 1px solid black;
 }
 
-.signup-password-span {
-    border: 1px ridge black;
+.signup-password .signup-password-span {
+    position: relative;
+    right: -13rem;
+    top: -2rem;
 }
 
 .signup-password i {
     font-size: 1.5rem;
-    cursor: pointer;
-    
+    cursor: pointer;   
 }
 
 .signup-confirmPassword {
@@ -83,16 +114,18 @@
     flex-direction: column;
     text-align: left;
     margin: 0.6rem;
+    margin-top: -0.5rem;
 }
 
 .signup-confirmPassword input {
     width: 14rem;
     padding: 0.5rem;
-    border: 1px solid black;
 }
 
 .signup-confirmPassword-span {
-    border: 1px ridge black;
+    position: relative;
+    right: -13rem;
+    top: -2rem;
 }
 
 .signup-confirmPassword i {
@@ -108,12 +141,57 @@
     padding: 0.5rem;
     border-radius: 5px;
     width: 10rem;
-    background-color: #f1c40f;
+    background-color: rgb(10, 177, 244);
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
+    color: white;
 }
 .login-section {
     margin: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+.login-section .login-link {
+    margin: 0.5rem;
+    color: rgb(10, 177, 244)
+}
+@media(min-width: 768px) {
+    .signup-page {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        top: 2.5rem;
+        right: 0;
+        overflow: hidden;
+    }
+
+    .signup-page .signup-image {
+        position: relative;
+        margin: auto;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .signup-page .signup-image img {
+        width: 100%;
+        height: 600px
+    }
+
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 5rem;
+        margin: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        width: 400px;
+        border: rgb(163, 160, 160);
+        border-radius: 5px;
+        height: 500px;
+    }
 }
