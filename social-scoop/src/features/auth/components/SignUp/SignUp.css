@@ -17,6 +17,7 @@
     /* margin: auto; */
     padding: 2rem;
     margin: 1rem;
+    top:-1rem;
 }
 
 .signup-page .signup-image img {
@@ -28,7 +29,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    top: -4rem;
+    top: -5rem;
     margin: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);

@@ -16,6 +16,7 @@
     /* margin: auto; */
     padding: 1rem;
     margin: 1rem;
+    top: -2rem;
 }
 .login-page .login-image img{
     width: 100%;
@@ -26,7 +27,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    /* top: 11rem; */
+    top: -6rem;
     margin: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
