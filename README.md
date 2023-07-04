@@ -1,4 +1,4 @@
-![alt text](https://www.solutionsforcare.co.uk/wp-content/uploads/2019/03/icon-food-new.png)
+![alt text](https://t3.ftcdn.net/jpg/01/66/81/14/240_F_166811450_8YRNZ657W0xbscSgUP8xMUlFMpqEMqdL.jpg)
 
 # Social Scoop
 Socila Media App for Foodies
