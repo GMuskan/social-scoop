@@ -60,7 +60,7 @@ export const SignUp = () => {
                                 SignUpClickHandler(signUp, navigate, authDispatch, feedDispatch, feedState)
                             }}>
                             <div className="signup-fullName">
-                                <label htmlFor="fullName">Full Name<span>*</span></label>
+                                <label htmlFor="fullName">Full Name<span style={{ color: "red" }}>*</span></label>
                                 <input
                                     type="text"
                                     name="fullName"
@@ -70,7 +70,7 @@ export const SignUp = () => {
                                 />
                             </div>
                             <div className="signup-username">
-                                <label htmlFor="username">Username<span>*</span></label>
+                                <label htmlFor="username">Username<span style={{ color: "red" }}>*</span></label>
                                 <input
                                     type="text"
                                     name="username"
@@ -80,7 +80,7 @@ export const SignUp = () => {
                                 />
                             </div>
                             <div className="signup-password">
-                                <label htmlFor="password">Password<span>*</span></label>
+                                <label htmlFor="password">Password<span style={{ color: "red" }}>*</span></label>
                                 
                                     <input
                                         type={signUp?.hide?.password ? "password" : "text"}
@@ -98,7 +98,7 @@ export const SignUp = () => {
                             </div>
                             <div className="confirm-password">
                                 <div className="signup-confirmPassword">
-                                    <label htmlFor="confirm-password">Confirm Password<span>*</span></label>
+                                    <label htmlFor="confirm-password">Confirm Password<span style={{ color: "red" }}>*</span></label>
                                     
                                         <input
                                             type={signUp?.hide?.confirmPassword ? "password" : "text"}
