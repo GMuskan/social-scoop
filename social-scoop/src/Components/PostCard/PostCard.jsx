@@ -31,15 +31,21 @@ export const PostCard = ({ post, token, loggedInUser, editPostModal, users, comm
     return (
         <div className="postcard">
             <div className="postcard-header">
-                <div className="postcard-header-image">
-                    <img src={profilePicture} alt="profile-pic" />
-                </div>
-                <div className="postcard-header-title" onClick={() => {
+                <div className="postcard-header-image" onClick={() => {
                     navigate(`/profile/${post?.username}`)
                 }}>
-                    <p>{post?.username} . <span>{getPostDate(post?.createdAt)}</span></p>
-                    {/* <p>@{post?.username}</p> */}
+                    <img src={profilePicture} alt="profile-pic" />
+                    <div className="postcard-header-title">
+                        <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
+                        <p>{post?.username}</p>
+                    </div>
                 </div>
+                {/* <div className="postcard-header-title" onClick={() => {
+                    navigate(`/profile/${post?.username}`)
+                }}>
+                    <p>{post?.fullName} . <span>{getPostDate(post?.createdAt)}</span></p>
+                    <p>{post?.username}</p>
+                </div> */}
                 <div className="postcard-header-button-section">
                     {post?.username === loggedInUser?.username
                         ? <span>

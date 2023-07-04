@@ -11,14 +11,14 @@
 
 .postcard .postcard-header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0.2rem;
     margin: 1rem;
 }
 
-/* .postcard .postcard-header-image{
-    border: 1px solid green
-} */
+.postcard .postcard-header-image{
+    display: flex;
+}
 
 .postcard .postcard-header img{
     width: 40px;

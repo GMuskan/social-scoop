@@ -30,7 +30,7 @@ export const getPostDate = (postDate) => {
             return `${min}min ago`;
         }
     } else {
-        return `few seconds ago`;
+        return `just now`;
     }
 };
 
