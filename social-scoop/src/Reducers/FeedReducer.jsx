@@ -1,5 +1,6 @@
 export const feedInitialState = {
     userFeed: [],
+    infiniteFeed: [],
     isLoading: true,
     users: [],
     search: "",
@@ -16,6 +17,8 @@ export const FeedReducer = (state, action) => {
     switch (action.type) {
         case "SET_FEED":
             return { ...state, userFeed: action.payload }
+        case "SET_INFINITE_FEED":
+            return { ...state, infiniteFeed: action.payload }
         case "SET_LOADING":
             return { ...state, isLoading: action.payload }
         case "SET_USERS":
