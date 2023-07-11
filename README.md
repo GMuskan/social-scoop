@@ -23,7 +23,7 @@ Socila Media App for Foodies
 
     . User Timeline
 
-    . Explore Feed
+    . Explore Feed ( Infinite Scroll )
 
     . Follow/Unfollow
 
