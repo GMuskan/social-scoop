@@ -13,7 +13,7 @@ export const Explore = () => {
     const { authState } = useContext(authContext);
     const { feedState, feedDispatch } = useContext(feedContext);
     const { token } = authState;
-    const { isLoading, userFeed, infiniteFeed, users, editPostModal, commentModal, activePost } = feedState;
+    const { isLoading, infiniteFeed, users, editPostModal, commentModal, activePost } = feedState;
     const loggedInUser = authState?.user
 
     const fetchMoreData = () => {
