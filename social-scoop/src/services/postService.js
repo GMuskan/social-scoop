@@ -7,6 +7,7 @@ export const getAllPosts = async (feedDispatch) => {
         const { data, status } = await axios.get("/api/posts");
         if (status === 200) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
             feedDispatch({ type: "SET_LOADING", payload: false })
         }
     } catch (err) {
@@ -27,6 +28,7 @@ export const addPost = async (postContent, newPostImage, loggedInUser, token, fe
         )
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
             toast.success("Post Added!")
         }
         feedDispatch({ type: "SET_NEW_POST_CONTENT", payload: "" })
@@ -47,6 +49,7 @@ export const likePost = async (postId, token, feedDispatch) => {
 
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
         }
     } catch (err) {
         console.error(err);
@@ -65,6 +68,7 @@ export const dislikePost = async (postId, token, feedDispatch) => {
         );
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
         }
     } catch (err) {
         console.error(err)
@@ -80,6 +84,7 @@ export const deletePost = async (postId, token, feedDispatch) => {
         )
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
             toast.success("Post Deleted!")
         }
     } catch (err) {
@@ -97,6 +102,7 @@ export const editPost = async (feedDispatch, token, postContent, postId) => {
         )
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
             toast.success("Post Edited!")
         }
 
@@ -116,6 +122,7 @@ export const addPostComment = async (post, commentData, token, feedDispatch) => 
             })
         if (status === 201) {
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
             feedDispatch({ type: "SET_COMMENT_MODAL", payload: false })
         }
     } catch (err) {

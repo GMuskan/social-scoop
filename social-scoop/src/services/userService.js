@@ -120,6 +120,7 @@ export const editUserProfile = async (profileDetails, token, authDispatch, users
             })
             feedDispatch({ type: "SET_USERS", payload: newUsers })
             feedDispatch({ type: "SET_FEED", payload: data?.posts })
+            feedDispatch({ type: "SET_INFINITE_FEED", payload: data?.posts })
         }
 
     } catch (err) {
